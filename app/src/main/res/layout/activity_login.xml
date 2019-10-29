@@ -112,26 +112,26 @@
         app:layout_constraintStart_toStartOf="@+id/textInputLayout"
         app:layout_constraintTop_toTopOf="@+id/entrar_login_button" />
 
-    <Button
-        android:id="@+id/entrar_com_fb_button"
-        android:layout_width="match_parent"
-        android:layout_height="46dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/button_facebook"
-        android:drawableStart="@drawable/ic_facebook"
-        android:padding="8dp"
-        android:text="Entrar com Facebook"
-        android:textAllCaps="false"
-        android:textColor="@color/branco"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/botao_ir_para_cadastro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entrar_login_button"
-        app:layout_constraintVertical_bias="0.956" />
+    //Button
+    //   android:id="@+id/entrar_com_fb_button"
+    //   android:layout_width="match_parent"
+    //   android:layout_height="46dp"
+    //   android:layout_marginStart="8dp"
+    //   android:layout_marginTop="8dp"
+    //   android:layout_marginEnd="8dp"
+    //   android:layout_marginBottom="8dp"
+    //   android:background="@drawable/button_facebook"
+    //   android:drawableStart="@drawable/ic_facebook"
+    //   android:padding="8dp"
+    //   android:text="Entrar com Facebook"
+    //   android:textAllCaps="false"
+    //   android:textColor="@color/branco"
+    //   android:textSize="20dp"
+    //   app:layout_constraintBottom_toTopOf="@+id/botao_ir_para_cadastro"
+    //   app:layout_constraintEnd_toEndOf="parent"
+    //   app:layout_constraintStart_toStartOf="parent"
+    //   app:layout_constraintTop_toBottomOf="@+id/entrar_login_button"
+    //   app:layout_constraintVertical_bias="0.956" />
 
     <Button
         android:id="@+id/botao_ir_para_cadastro"
@@ -147,6 +147,7 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrar_login_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
