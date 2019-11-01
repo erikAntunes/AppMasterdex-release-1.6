@@ -93,8 +93,8 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:text="Nick Name"
-        android:textSize="35dp"
+        android:text="Digite seu nome"
+        android:textSize="30dp"
         android:layout_marginTop="30dp"
         android:textColor="@color/azulFace"
         android:layout_width="wrap_content"
