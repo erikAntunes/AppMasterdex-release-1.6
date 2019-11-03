@@ -48,6 +48,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
     private TextView nomePerfil;
     private TextInputEditText nomeEdit;
     private CircleImageView fotoPerfil;
+    private ImageView trocarFotoPerfil;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     private FirebaseAuth firebaseAuth;
 
@@ -61,6 +62,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
         nomePerfil = findViewById(R.id.nome_editar_perfil);
         nomeEdit = findViewById(R.id.nome_edit_perfil);
         fotoPerfil = findViewById(R.id.foto_avatar_editar_perfil);
+        trocarFotoPerfil = findViewById(R.id.trocar_foto_perfil);
 
         botaoCancelarAlteracoes = findViewById(R.id.button_cancelar_alteracoes);
         botaoSalvarAlteracoes = findViewById(R.id.button_salvar_alteracoes);
@@ -77,7 +79,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
         }
 
 
-        fotoPerfil.setOnClickListener(v -> {
+        trocarFotoPerfil.setOnClickListener(v -> {
 
             abrirCamera();
         });
