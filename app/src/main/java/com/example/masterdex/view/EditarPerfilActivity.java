@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,7 +42,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
 
     private static final String TAG = "EditarPerfilActivity";
     private ImageView botaoCancelarAlteracoes;
-    private ImageView botaoSalvarAlteracoes;
+    private Button botaoSalvarAlteracoes;
     private FirebaseUser user;
     private FirebaseStorage storage;
     private TextView nomePerfil;
