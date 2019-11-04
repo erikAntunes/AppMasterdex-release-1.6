@@ -154,6 +154,7 @@ public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClic
                 if (user != null){
                     Intent intent1 = new Intent(getContext(), MainActivity.class);
                     startActivity(intent1);
+                    return true;
                 } else{
                     Intent intent2 = new Intent(getContext(), LoginActivity.class);
                     startActivity(intent2);
