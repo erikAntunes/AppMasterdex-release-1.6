@@ -31,7 +31,6 @@ public class StatsFragment extends Fragment {
         Pokemon pokemon = (Pokemon) bundle.getSerializable("POKEMON");
         speedTextView.setText(""+pokemon.getStats().get(0).getValorStats());
         speedTextView.setText("999");
-
         return view;
     }
 }

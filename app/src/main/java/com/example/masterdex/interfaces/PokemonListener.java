@@ -1,5 +1,4 @@
 package com.example.masterdex.interfaces;
-
 import com.example.masterdex.models.Pokemon;
 
 public interface PokemonListener {

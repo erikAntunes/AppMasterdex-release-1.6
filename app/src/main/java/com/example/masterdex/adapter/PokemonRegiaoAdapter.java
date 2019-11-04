@@ -37,7 +37,6 @@ public class PokemonRegiaoAdapter extends RecyclerView.Adapter<PokemonRegiaoAdap
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         RegiaoPokemon regiaoPokemon = regiaoPokemonList.get(position);
         holder.bind(regiaoPokemon);
-
     }
 
     @Override

@@ -1,12 +1,8 @@
 package com.example.masterdex.viewmodel;
-
 import android.app.Application;
-
 import com.example.masterdex.models.Regiao;
 import com.example.masterdex.repository.RegioesRepository;
-
 import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
@@ -34,7 +30,6 @@ public class RegioesViewModel extends AndroidViewModel {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
                 .subscribe(regioes -> mutableLiveData.setValue(regioes))
-
         );
     }
 }

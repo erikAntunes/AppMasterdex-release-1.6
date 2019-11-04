@@ -1,5 +1,4 @@
 package com.example.masterdex.models;
-
 public class TipoPokemon {
 
     private String name;

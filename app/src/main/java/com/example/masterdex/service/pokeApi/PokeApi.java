@@ -1,9 +1,7 @@
 package com.example.masterdex.service.pokeApi;
-
 import com.example.masterdex.models.Pokemon;
 import com.example.masterdex.models.PokemonResponse;
 import com.example.masterdex.models.RegiaoResponse;
-
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

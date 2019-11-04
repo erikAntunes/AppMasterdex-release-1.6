@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/populares_perfil_recyclerview_id"
         android:layout_width="match_parent"

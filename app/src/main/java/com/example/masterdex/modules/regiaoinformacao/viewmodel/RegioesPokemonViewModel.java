@@ -1,16 +1,11 @@
 package com.example.masterdex.modules.regiaoinformacao.viewmodel;
-
 import android.app.Application;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
-
 import com.example.masterdex.models.RegiaoPokemon;
 import com.example.masterdex.repository.RegioesInformacoesRepository;
-
 import java.util.List;
-
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;

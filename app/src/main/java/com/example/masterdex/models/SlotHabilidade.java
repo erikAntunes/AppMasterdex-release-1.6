@@ -1,5 +1,4 @@
 package com.example.masterdex.models;
-
 import java.io.Serializable;
 
 public class SlotHabilidade implements Serializable {

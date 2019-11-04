@@ -1,5 +1,4 @@
 package com.example.masterdex.adapter;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,26 +6,20 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.SortedList;
-
 import com.example.masterdex.interfaces.PokemonListener;
 import com.example.masterdex.models.Pokemon;
 import com.example.masterdex.R;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
 import io.reactivex.annotations.NonNull;
 
 public class AdapterPokemon extends RecyclerView.Adapter<AdapterPokemon.ViewHolder> implements Filterable {
 
     private List<Pokemon> pokemonsListFull;
-
     private PokemonListener pokemonListener;
     private List<Pokemon> filteredList;
 
@@ -54,10 +47,7 @@ public class AdapterPokemon extends RecyclerView.Adapter<AdapterPokemon.ViewHold
 
         String pok = pokemon.getName();
         pok = pok.substring(0, 1).toUpperCase().concat(pok.substring(1));
-
         viewHolder.textNomePokemon.setText(pok);
-
-
         Picasso.get().load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemon.getNumber() + ".png")
                 .into(viewHolder.imageFotoPokemon);
 
@@ -116,7 +106,6 @@ public class AdapterPokemon extends RecyclerView.Adapter<AdapterPokemon.ViewHold
 
         private TextView textNomePokemon;
         private ImageView imageFotoPokemon;
-
         private ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -124,7 +113,6 @@ public class AdapterPokemon extends RecyclerView.Adapter<AdapterPokemon.ViewHold
             imageFotoPokemon = itemView.findViewById(R.id.imageFotoPokemon);
         }
     }
-
 
     public void atualizarListaPokemons(List<Pokemon> listaPokemon) {
 
@@ -143,7 +131,6 @@ public class AdapterPokemon extends RecyclerView.Adapter<AdapterPokemon.ViewHold
         };
         Collections.sort(filteredList, comparator);
         notifyDataSetChanged();
-
     }
 
     public void sortNameByDesc() {
@@ -156,7 +143,6 @@ public class AdapterPokemon extends RecyclerView.Adapter<AdapterPokemon.ViewHold
         };
         Collections.sort(filteredList, comparator);
         notifyDataSetChanged();
-
     }
 
     public void sortNumberByAsc() {
@@ -169,7 +155,6 @@ public class AdapterPokemon extends RecyclerView.Adapter<AdapterPokemon.ViewHold
         };
         Collections.sort(filteredList, comparator);
         notifyDataSetChanged();
-
     }
 
     public void sortNumberByDesc() {
@@ -182,12 +167,7 @@ public class AdapterPokemon extends RecyclerView.Adapter<AdapterPokemon.ViewHold
         };
         Collections.sort(filteredList, comparator);
         notifyDataSetChanged();
-
     }
-
-
-
-
 }
 
 

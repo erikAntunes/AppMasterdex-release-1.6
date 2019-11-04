@@ -1,15 +1,11 @@
 package com.example.masterdex.database;
-
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
-
 import com.example.masterdex.models.Pokemon;
-
 import java.util.List;
-
 import io.reactivex.Observable;
 
 @Dao
@@ -26,7 +22,6 @@ public interface CapturadosDao {
 
     @Query("SELECT * FROM pokemons WHERE name = :name")
     Observable<Pokemon> getName(String name);
-
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Pokemon pokemon);

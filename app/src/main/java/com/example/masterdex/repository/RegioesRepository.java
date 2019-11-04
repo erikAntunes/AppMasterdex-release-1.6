@@ -1,21 +1,15 @@
 package com.example.masterdex.repository;
-
 import android.content.res.Resources;
-
 import com.example.masterdex.R;
 import com.example.masterdex.models.Regiao;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import io.reactivex.Observable;
-
 
 public class RegioesRepository {
 
     public Observable<List<Regiao>> getListaRegioes() {
         return Observable.create(emitter -> {
-
 
             List<Regiao> listaRegioes = new ArrayList<>();
 
@@ -81,10 +75,6 @@ public class RegioesRepository {
 
             emitter.onNext(listaRegioes);
             emitter.onComplete();
-
         });
-
-
     }
-
 }

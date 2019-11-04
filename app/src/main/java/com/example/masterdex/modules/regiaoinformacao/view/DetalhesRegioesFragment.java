@@ -1,15 +1,10 @@
 package com.example.masterdex.modules.regiaoinformacao.view;
-
-
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.masterdex.R;
 import com.example.masterdex.models.Regiao;
 
@@ -21,7 +16,6 @@ public class DetalhesRegioesFragment extends Fragment {
 
     private Regiao regiao;
     private TextView detalheRegiaoTextView;
-
 
     public DetalhesRegioesFragment(Regiao regiao) {
         this.regiao = regiao;
@@ -38,5 +32,4 @@ public class DetalhesRegioesFragment extends Fragment {
 
         return view;
     }
-
 }

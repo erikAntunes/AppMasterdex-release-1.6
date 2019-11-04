@@ -9,5 +9,4 @@
         android:state_checked="false"
         android:color="@color/cinza"/>
 
-
 </selector>

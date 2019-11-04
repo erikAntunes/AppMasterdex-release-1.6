@@ -26,7 +26,6 @@
                 android:width="240dp"
                 android:height="40dp"
                 />
-
         </shape>
     </item>
 </ripple>

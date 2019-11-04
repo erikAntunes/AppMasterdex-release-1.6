@@ -1,23 +1,16 @@
 package com.example.masterdex.modules.regiaoinformacao.view;
-
 import android.content.Intent;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.masterdex.R;
 import com.example.masterdex.adapter.RegioesViewPagerAdapter;
 import com.example.masterdex.models.Regiao;
 import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class RegioesInformacoesActivity extends AppCompatActivity {

@@ -1,9 +1,6 @@
 package com.example.masterdex.service;
-
 import com.example.masterdex.service.pokeApi.PokeApi;
-
 import java.util.concurrent.TimeUnit;
-
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -31,7 +28,6 @@ public class RetrofitService {
         }
         return retrofit;
     }
-
     //devolve a API
     public PokeApi getPokeApi(){
         return getRetrofit().create(PokeApi.class);

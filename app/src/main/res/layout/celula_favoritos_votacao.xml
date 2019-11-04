@@ -20,7 +20,6 @@
         app:strokeWidth="1dp">
 
 
-
         <TextView
             android:id="@+id/nome_pokemon_votado"
             android:layout_width="match_parent"
@@ -34,8 +33,5 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-
     </com.google.android.material.card.MaterialCardView>
-
-
 </LinearLayout>

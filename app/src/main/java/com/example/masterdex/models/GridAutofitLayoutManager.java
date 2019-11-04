@@ -1,8 +1,6 @@
 package com.example.masterdex.models;
-
 import android.content.Context;
 import android.util.TypedValue;
-
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 

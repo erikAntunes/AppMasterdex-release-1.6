@@ -46,8 +46,6 @@ public class RegioesAdapter extends RecyclerView.Adapter<RegioesAdapter.ViewHold
                         regioesListener.onRegiaoClicada(regiao);
                     }
                 });
-
-
     }
 
     @Override
@@ -70,11 +68,7 @@ public class RegioesAdapter extends RecyclerView.Adapter<RegioesAdapter.ViewHold
         public void setupRegiao(Regiao regiao){
 
             nomeRegiaoTextView.setText(regiao.getNomeRegiao());
-
-
             Picasso.get().load(regiao.getImagemRegiao()).into(regiaoCircleImageView);
         }
-
-
     }
 }

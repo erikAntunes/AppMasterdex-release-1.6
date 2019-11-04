@@ -63,7 +63,6 @@
                             android:textSize="22dp"
                             android:textStyle="bold" />
 
-
                     </LinearLayout>
 
                     <TextView
@@ -392,7 +391,6 @@
         </LinearLayout>
 
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

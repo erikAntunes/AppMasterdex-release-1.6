@@ -456,11 +456,6 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
 
         setupStatsTab(pokemonApi, adapter.getPage(0));
         setupHabilidadesTab(pokemonApi, adapter.getPage(1));
-
-    }
-
-    private void setupSobreTab(Pokemon pokemonApi, View view) {
-        TextView flavorTextTextView = findViewById(R.id.flavor_text_text_view);
     }
 
     private void setupHabilidadesTab(Pokemon pokemonApi, View view) {

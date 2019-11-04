@@ -1,24 +1,19 @@
 package com.example.masterdex.adapter;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.masterdex.R;
 import com.example.masterdex.models.Pokemon;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterPerfilCapturados extends RecyclerView.Adapter<AdapterPerfilCapturados.ViewHolder> {
-
 
     private List<Pokemon> capturados;
     private Context context;
@@ -74,10 +69,6 @@ public class AdapterPerfilCapturados extends RecyclerView.Adapter<AdapterPerfilC
 
             textNomePokemon = itemView.findViewById(R.id.textNomePokemon);
             imageFotoPokemon = itemView.findViewById(R.id.imageFotoPokemon);
-
         }
     }
-
-
-
 }

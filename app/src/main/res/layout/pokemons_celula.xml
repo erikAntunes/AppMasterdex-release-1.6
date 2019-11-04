@@ -11,10 +11,7 @@
     android:gravity="center"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-
     android:orientation="vertical">
-
-
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/pokemon_card_view"
@@ -58,10 +55,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-
-
-
     </com.google.android.material.card.MaterialCardView>
-
 
 </LinearLayout>

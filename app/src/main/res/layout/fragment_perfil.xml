@@ -9,8 +9,6 @@
     android:orientation="vertical"
     android:background="@drawable/color_background_drawable">
 
-
-
     <Button
         android:id="@+id/button_opcoes_perfil"
         android:layout_width="28dp"
@@ -19,9 +17,6 @@
         android:layout_gravity="right"
         android:layout_margin="32dp"
         />
-
-
-
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/foto_perfil_circle_image_view"
@@ -73,8 +68,5 @@
 
         </androidx.viewpager.widget.ViewPager>
     </FrameLayout>
-
-
-
 
 </LinearLayout>

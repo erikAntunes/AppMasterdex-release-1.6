@@ -7,8 +7,5 @@
         <item
             android:state_selected="false"
             android:drawable="@drawable/ic_favoritar_off"
-
             />
-
-
 </selector>

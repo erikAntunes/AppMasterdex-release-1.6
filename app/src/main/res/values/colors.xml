@@ -3,15 +3,13 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#FFFFFF</color>
-
     <color name="branco">#FFFFFF</color>
     <color name="roxo">#480458</color>
     <color name="azulFace" >#2175F3</color>
     <color name="azulBackground">#100B5A</color>
     <color name="azulBackgroundLight">#2C2780</color>
-
-    <color name = "Preto">#FF000000</color>
-    <color name = "cinza">#979797</color>
+    <color name ="Preto">#FF000000</color>
+    <color name ="cinza">#979797</color>
     <color name="lilac">#463FA2</color>
 
     //type colors
@@ -33,10 +31,5 @@
     <color name="terra">#774A28</color>
     <color name="venenoso">#6913C7</color>
     <color name="voador">#445BF1</color>
-
     <color name="fogoTransparent">#5CFF5200</color>
-
-
-
-
 </resources>

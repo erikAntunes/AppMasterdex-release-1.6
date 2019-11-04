@@ -1,17 +1,13 @@
 package com.example.masterdex.repository;
-
 import android.content.Context;
 import android.widget.ToggleButton;
-
 import androidx.room.Room;
-
 import com.example.masterdex.database.CapturadosDao;
 import com.example.masterdex.database.CapturadosDb;
 import com.example.masterdex.database.FavoritosDao;
 import com.example.masterdex.database.FavoritosDb;
 import com.example.masterdex.models.Pokemon;
 import com.example.masterdex.service.RetrofitService;
-
 import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -26,13 +22,11 @@ public class DetalhesPokemonRepository {
     public static final String FAVORITOS_DB = "favoritos_Db";
     public static final String CAPTURADOS_DB = "capturados_Db";
 
-
     public DetalhesPokemonRepository(Context context){
         favoritosDb = Room.databaseBuilder(context, FavoritosDb.class, FAVORITOS_DB).build();
         capturadosDb = Room.databaseBuilder(context, CapturadosDb.class, CAPTURADOS_DB).build();
 
     }
-
 
     public void deletarPokemonFavorito(Pokemon pokemon) {
 

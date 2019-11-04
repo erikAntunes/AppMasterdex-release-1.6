@@ -20,9 +20,7 @@ import java.util.List;
 
 public class AdapterPerfilFavoritos extends RecyclerView.Adapter<AdapterPerfilFavoritos.ViewHolder> {
 
-
     private List<Pokemon> favoritos;
-
 
     public AdapterPerfilFavoritos(List<Pokemon> favoritos, FragmentActivity activity) {
 
@@ -30,13 +28,11 @@ public class AdapterPerfilFavoritos extends RecyclerView.Adapter<AdapterPerfilFa
         notifyDataSetChanged();
     }
 
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pokemons_celula_favoritos, viewGroup, false);
-
 
         return new ViewHolder(view);
     }
@@ -44,23 +40,18 @@ public class AdapterPerfilFavoritos extends RecyclerView.Adapter<AdapterPerfilFa
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
 
-
-
         final Pokemon pokemon = favoritos.get(position);
-
         String pok = pokemon.getName();
         pok = pok.substring(0, 1).toUpperCase().concat(pok.substring(1));
         viewHolder.textNomePokemon.setText(pok);
         Picasso.get().load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemon.getNumber() + ".png")
                 .into(viewHolder.imageFotoPokemon);
-
     }
 
     @Override
     public int getItemCount() {
         return favoritos.size();
     }
-
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -72,9 +63,6 @@ public class AdapterPerfilFavoritos extends RecyclerView.Adapter<AdapterPerfilFa
 
             textNomePokemon = itemView.findViewById(R.id.textNomePokemon);
             imageFotoPokemon = itemView.findViewById(R.id.imageFotoPokemon);
-
         }
     }
-
-
 }

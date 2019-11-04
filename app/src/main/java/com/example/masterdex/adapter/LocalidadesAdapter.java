@@ -1,16 +1,12 @@
 package com.example.masterdex.adapter;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.masterdex.R;
 import com.example.masterdex.models.Cidade;
-
 import java.util.List;
 
 public class LocalidadesAdapter extends RecyclerView.Adapter<LocalidadesAdapter.ViewHolder> {
@@ -26,7 +22,6 @@ public class LocalidadesAdapter extends RecyclerView.Adapter<LocalidadesAdapter.
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.locais_celula, viewGroup, false);
 
-
         return new ViewHolder(view);
     }
 
@@ -35,7 +30,6 @@ public class LocalidadesAdapter extends RecyclerView.Adapter<LocalidadesAdapter.
 
         Cidade cidade = cidadeList.get(position);
         holder.setupLocalidades(cidade);
-
     }
 
     @Override
@@ -56,7 +50,6 @@ public class LocalidadesAdapter extends RecyclerView.Adapter<LocalidadesAdapter.
         public void setupLocalidades(Cidade cidade) {
 
             nomeLocalidadeTextView.setText(cidade.getNome());
-
         }
     }
 }

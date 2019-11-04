@@ -1,17 +1,9 @@
-
-
 package com.example.masterdex.models;
-
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-import androidx.room.Transaction;
-import androidx.room.TypeConverter;
-import androidx.room.TypeConverters;
-
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.List;
@@ -125,7 +117,6 @@ public class Pokemon implements Serializable {
             return one.getName().compareTo(two.getName());
         }
     };
-
 }
 
 
