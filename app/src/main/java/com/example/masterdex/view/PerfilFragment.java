@@ -30,6 +30,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import de.hdodenhof.circleimageview.CircleImageView;
 import es.dmoral.toasty.Toasty;
 import io.reactivex.annotations.NonNull;
@@ -45,7 +46,6 @@ public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClic
     private FirebaseUser user;
     private TextView nomePerfil;
     private FirebaseAuth firebaseAuth;
-
     private TabLayout tabLayoutPerfil;
     private ViewPager viewPagerPerfil;
 
@@ -140,14 +140,26 @@ public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClic
         switch (menuItem.getItemId()) {
 
             case R.id.item_editar_perfil:
-                Intent intent = new Intent(getContext(), EditarPerfilActivity.class);
-                startActivity(intent);
-                return true;
+                if (user != null){
+                    Intent intent = new Intent(getContext(), EditarPerfilActivity.class);
+                    startActivity(intent);
+                    return true;
+                } else {
+                    Intent intent = new Intent(getContext(),LoginActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
 
             case R.id.item_ir_para_perfil:
-                Intent intent2 = new Intent(getContext(), LoginActivity.class);
-                startActivity(intent2);
-                return true;
+                if (user != null){
+                    Intent intent1 = new Intent(getContext(), MainActivity.class);
+                    startActivity(intent1);
+                } else{
+                    Intent intent2 = new Intent(getContext(), LoginActivity.class);
+                    startActivity(intent2);
+                    return true;
+                }
+
             case R.id.item_sair:
                 signOut();
                 Intent intent1 = new Intent(getContext(), MainActivity.class);

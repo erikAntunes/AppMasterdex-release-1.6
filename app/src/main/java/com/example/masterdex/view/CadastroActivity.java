@@ -140,9 +140,7 @@ public class CadastroActivity extends AppCompatActivity {
                                 .setTitleText("Oops...")
                                 .setContentText("Por favor revise seus dados, talvez o usuario ja exista no sistema")
                                 .show();
-                        //    Toasty.error(CadastroActivity.this,
-                        //            "Por favor revise seus dados ,talvez o usuario ja existe no sistema",
-                        //            Toasty.LENGTH_SHORT).show();
+
 
                     }
 
