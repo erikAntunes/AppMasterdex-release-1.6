@@ -64,20 +64,12 @@ public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClic
 
         tabLayoutPerfil = view.findViewById(R.id.tablayout_perfil_id);
         viewPagerPerfil = view.findViewById(R.id.viewpager_perfil_id);
-
         PerfilViewPagerAdapter perfilViewPagerAdapter = getPerfilViewPagerAdapter();
-
-
         tabLayoutPerfil.setSelected(true);
-
-
         viewPagerPerfil.setAdapter(perfilViewPagerAdapter);
         tabLayoutPerfil.setupWithViewPager(viewPagerPerfil);
-
-
         nomePerfil = view.findViewById(R.id.nome_perfil_text_view);
         fotoPerfil = view.findViewById(R.id.foto_perfil_circle_image_view);
-
         firebaseAuth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -86,7 +78,6 @@ public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClic
 
 
         buttonOpcoesPerfil = view.findViewById(R.id.button_opcoes_perfil);
-
         buttonOpcoesPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,12 +97,25 @@ public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClic
         return view;
     }
 
+    @Override
+    public void onResume() {
+
+        getUser();
+        super.onResume();
+    }
+
+    @Override
+    public void onStart() {
+
+        getUser();
+        super.onStart();
+    }
+
     private void getUser() {
         if (user != null) {
             // Name, email address, and profile photo Url
             String name = user.getDisplayName();
             String email = user.getEmail();
-
             nomePerfil.setText(name);
             baixarFoto();
         }
@@ -146,7 +150,7 @@ public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClic
                 return true;
             case R.id.item_sair:
                 signOut();
-                Intent intent1 = new Intent(getContext(), LoginActivity.class);
+                Intent intent1 = new Intent(getContext(), MainActivity.class);
                 startActivity(intent1);
             default:
                 return false;
