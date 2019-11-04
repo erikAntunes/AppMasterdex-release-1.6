@@ -1,16 +1,13 @@
 package com.example.masterdex.view;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.masterdex.R;
 import com.example.masterdex.adapter.AdapterPerfilPopulares;
 import com.example.masterdex.models.Pokemon;
@@ -23,15 +20,13 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-
 import io.reactivex.annotations.NonNull;
+
 
 public class PopuladoresPerfilFragment extends Fragment {
 
@@ -40,7 +35,7 @@ public class PopuladoresPerfilFragment extends Fragment {
     private AdapterPerfilPopulares adapterPerfilPopulares;
     private static final int LIMIT = 20;
     private int offset = 0;
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseFirestore firebaseDb = FirebaseFirestore.getInstance();
     private FirebaseUser user;
     public String nomePokemonPopular;
     public String contador;
@@ -62,25 +57,15 @@ public class PopuladoresPerfilFragment extends Fragment {
             String name = user.getDisplayName();
         }
 
-
         recyclerView = view.findViewById(R.id.populares_perfil_recyclerview_id);
 
-
-
-
-        //   GridLayoutManager layoutManager = new GridLayoutManager(getContext(),3);
-        //   recyclerView.setLayoutManager(layoutManager);
-        //   recyclerView.setAdapter(adapterPerfilPopulares);
-
-
         buscarDadosFirebase();
-
 
         return view;
     }
 
     private void buscarDadosFirebase() {
-        db.collection("votações")
+        firebaseDb.collection("votações")
                 .document("pokemons")
                 .collection("populares")
                 .orderBy("nome", Query.Direction.ASCENDING)
@@ -120,13 +105,7 @@ public class PopuladoresPerfilFragment extends Fragment {
                         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 1);
                         recyclerView.setLayoutManager(layoutManager);
                         recyclerView.setAdapter(adapterPerfilPopulares);
-
-
                     }
-
-
                 });
     }
-
-
 }

@@ -1,15 +1,9 @@
 package com.example.masterdex.view;
-
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
-
-import android.util.Log;
 import android.view.LayoutInflater;
-
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,25 +11,17 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.masterdex.R;
 import com.example.masterdex.adapter.PerfilViewPagerAdapter;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.masterdex.database.FavoritosDb;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
-
-import cn.pedant.SweetAlert.SweetAlertDialog;
 import de.hdodenhof.circleimageview.CircleImageView;
-import es.dmoral.toasty.Toasty;
-import io.reactivex.annotations.NonNull;
-
-import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
 public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClickListener {
@@ -48,6 +34,8 @@ public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClic
     private FirebaseAuth firebaseAuth;
     private TabLayout tabLayoutPerfil;
     private ViewPager viewPagerPerfil;
+    private FavoritosDb favoritosDb;
+    private FirebaseFirestore db;
 
     public PerfilFragment() {
         // Required empty public constructor
@@ -57,9 +45,6 @@ public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClic
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
-
         View view = inflater.inflate(R.layout.fragment_perfil, container, false);
 
         tabLayoutPerfil = view.findViewById(R.id.tablayout_perfil_id);
@@ -72,10 +57,7 @@ public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClic
         fotoPerfil = view.findViewById(R.id.foto_perfil_circle_image_view);
         firebaseAuth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
-
-
         getUser();
-
 
         buttonOpcoesPerfil = view.findViewById(R.id.button_opcoes_perfil);
         buttonOpcoesPerfil.setOnClickListener(new View.OnClickListener() {
@@ -86,11 +68,7 @@ public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClic
                 MenuInflater menuInflater = popupMenu.getMenuInflater();
                 menuInflater.inflate(R.menu.popup_menu, popupMenu.getMenu());
                 popupMenu.show();
-
-
                 popupMenu.setOnMenuItemClickListener(PerfilFragment.this);
-
-
             }
         });
 
@@ -101,6 +79,7 @@ public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClic
     public void onResume() {
 
         getUser();
+
         super.onResume();
     }
 
@@ -119,8 +98,6 @@ public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClic
             nomePerfil.setText(name);
             baixarFoto();
         }
-
-
     }
 
     private PerfilViewPagerAdapter getPerfilViewPagerAdapter() {

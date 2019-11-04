@@ -1,19 +1,15 @@
 package com.example.masterdex.view;
-
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +19,6 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.ToggleButton;
-
 import com.example.masterdex.R;
 import com.example.masterdex.adapter.AdapterHabilidades;
 import com.example.masterdex.database.CapturadosDao;
@@ -45,11 +40,9 @@ import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.ViewPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.ViewPagerItems;
 import com.squareup.picasso.Picasso;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -62,7 +55,6 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
     public static final String FAVORITOS_DB = "favoritos_Db";
     public static final String CAPTURADOS_DB = "capturados_Db";
     private static final String TAG = "DetalhesPokemonActivity";
-
     private ToggleButton botaoFavorito;
     private ToggleButton botaoCapturado;
     private FavoritosDb favoritosDb;
@@ -76,7 +68,6 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
     private boolean favoritado = false;
     private boolean capturado = false;
     private SmartTabLayout smartTabLayout;
-
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseUser user;
@@ -239,9 +230,6 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
         favoritosDb.put("nome", pokemon.getName());
         favoritosDb.put("numero", pokemon.getNumber());
 
-
-
-
         // Add a new document with a generated ID
         db.collection("votações")
                 .document("pokemons")
@@ -332,7 +320,6 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
             case "flying":
                 tipoPrimarioImageView.setBackground(getDrawable(R.drawable.ic_type_flying));
                 break;
-
         }
 
         switch (tipoSecundario) {
@@ -390,9 +377,7 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
             case "flying":
                 tipoSecundarioImageView.setBackground(getDrawable(R.drawable.ic_type_flying));
                 break;
-
         }
-
     }
 
     private void setarTipoUnico(Pokemon pokemon) {
@@ -453,10 +438,7 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
             case "flying":
                 tipoUnicoImageView.setBackground(getDrawable(R.drawable.ic_type_flying));
                 break;
-
         }
-
-
     }
 
     private void setupViewPager(Pokemon pokemonApi) {
@@ -464,7 +446,6 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
 
                 .add("STATS", R.layout.fragment_stats)
                 .add("HABILIDADES", R.layout.fragment_habilidades)
-               // .add("SOBRE", R.layout.fragment_evolucoes)
                 .create());
 
         ViewPager viewPager = findViewById(R.id.viewPager);
@@ -475,13 +456,11 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
 
         setupStatsTab(pokemonApi, adapter.getPage(0));
         setupHabilidadesTab(pokemonApi, adapter.getPage(1));
-       // setupSobreTab(pokemonApi, adapter.getPage(2));
 
     }
 
     private void setupSobreTab(Pokemon pokemonApi, View view) {
         TextView flavorTextTextView = findViewById(R.id.flavor_text_text_view);
-        //flavorTextTextView.setText("" + pokemonApi.getFlavorTextEntries().get(9).getFlavorText());
     }
 
     private void setupHabilidadesTab(Pokemon pokemonApi, View view) {
@@ -494,9 +473,6 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
         habilidadesRecycler.setAdapter(adapterHabilidades);
         habilidadesRecycler.setLayoutManager(new LinearLayoutManager(this));
 
-//        if (pokemonApi.getTypes().get(0).getType().getName().equals("fire")){
-//            habilidadeNome.setTextColor(getResources().getColor(R.color.fogo));
-//        }
     }
 
     private void setupStatsTab(Pokemon pokemonApi, View view) {
@@ -507,9 +483,7 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
         TextView defTextView = view.findViewById(R.id.stats_text_view_valor_def);
         TextView hpTextView = view.findViewById(R.id.stats_text_view_valor_hp);
         TextView totalStats = findViewById(R.id.stats_text_view_valor_total);
-
         switchStatsColor(pokemonApi);
-
         speedTextView.setText("" + pokemonApi.getStats().get(0).getValorStats());
         spDefTextView.setText("" + pokemonApi.getStats().get(1).getValorStats());
         spAtkTextView.setText("" + pokemonApi.getStats().get(2).getValorStats());
@@ -525,8 +499,6 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 + pokemonApi.getStats().get(5).getValorStats();
 
         totalStats.setText("" + somaStatus);
-
-
     }
 
     private void deletarPokemonFavorito(Pokemon pokemon) {
@@ -562,13 +534,9 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                         System.out.println("favoritado nao encontrado no banco $$$");
 
                         favoritado = false;
-
                     }
                 });
-
-
     }
-
 
     private void deletarPokemonCapturado(Pokemon pokemon) {
         Completable.fromAction(() -> capturadosDb.capturadosDao().deleteByName(pokemon.getName()))
@@ -602,7 +570,6 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                         capturado = false;
                     }
                 });
-
     }
 
 
@@ -732,7 +699,6 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 changeStatusBarColor(voadorColor);
                 smartTabLayout.setSelectedIndicatorColors(getColor(R.color.voador));
                 break;
-
         }
     }
 
@@ -751,7 +717,6 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
         MaterialCardView atkCard = findViewById(R.id.stats_atk_card);
         MaterialCardView hpCard = findViewById(R.id.stats_hp_card);
         MaterialCardView totalStatsCard = findViewById(R.id.stats_total_card);
-
         ImageView speedBackground = findViewById(R.id.stats_color_background_speed);
         ImageView spDefBackground = findViewById(R.id.stats_color_background_spd);
         ImageView spAtkBackground = findViewById(R.id.stats_color_background_spa);
@@ -775,14 +740,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.aco));
                 atkCard.setStrokeColor(getColor(R.color.aco));
                 hpCard.setStrokeColor(getColor(R.color.aco));
-
                 speedBackground.setBackground(getDrawable(R.color.aco));
                 spDefBackground.setBackground(getDrawable(R.color.aco));
                 spAtkBackground.setBackground(getDrawable(R.color.aco));
                 defBackground.setBackground(getDrawable(R.color.aco));
                 atkBackground.setBackground(getDrawable(R.color.aco));
                 hpBackground.setBackground(getDrawable(R.color.aco));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.aco));
 
                 break;
@@ -793,14 +756,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.agua));
                 atkCard.setStrokeColor(getColor(R.color.agua));
                 hpCard.setStrokeColor(getColor(R.color.agua));
-
                 speedBackground.setBackground(getDrawable(R.color.agua));
                 spDefBackground.setBackground(getDrawable(R.color.agua));
                 spAtkBackground.setBackground(getDrawable(R.color.agua));
                 defBackground.setBackground(getDrawable(R.color.agua));
                 atkBackground.setBackground(getDrawable(R.color.agua));
                 hpBackground.setBackground(getDrawable(R.color.agua));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.agua));
 
                 break;
@@ -811,14 +772,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.dragao));
                 atkCard.setStrokeColor(getColor(R.color.dragao));
                 hpCard.setStrokeColor(getColor(R.color.dragao));
-
                 speedBackground.setBackground(getDrawable(R.color.dragao));
                 spDefBackground.setBackground(getDrawable(R.color.dragao));
                 spAtkBackground.setBackground(getDrawable(R.color.dragao));
                 defBackground.setBackground(getDrawable(R.color.dragao));
                 atkBackground.setBackground(getDrawable(R.color.dragao));
                 hpBackground.setBackground(getDrawable(R.color.dragao));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.dragao));
 
                 break;
@@ -829,14 +788,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.eletrico));
                 atkCard.setStrokeColor(getColor(R.color.eletrico));
                 hpCard.setStrokeColor(getColor(R.color.eletrico));
-
                 speedBackground.setBackground(getDrawable(R.color.eletrico));
                 spDefBackground.setBackground(getDrawable(R.color.eletrico));
                 spAtkBackground.setBackground(getDrawable(R.color.eletrico));
                 defBackground.setBackground(getDrawable(R.color.eletrico));
                 atkBackground.setBackground(getDrawable(R.color.eletrico));
                 hpBackground.setBackground(getDrawable(R.color.eletrico));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.eletrico));
 
                 break;
@@ -847,14 +804,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.fada));
                 atkCard.setStrokeColor(getColor(R.color.fada));
                 hpCard.setStrokeColor(getColor(R.color.fada));
-
                 speedBackground.setBackground(getDrawable(R.color.fada));
                 spDefBackground.setBackground(getDrawable(R.color.fada));
                 spAtkBackground.setBackground(getDrawable(R.color.fada));
                 defBackground.setBackground(getDrawable(R.color.fada));
                 atkBackground.setBackground(getDrawable(R.color.fada));
                 hpBackground.setBackground(getDrawable(R.color.fada));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.fada));
 
                 break;
@@ -865,14 +820,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.fantasma));
                 atkCard.setStrokeColor(getColor(R.color.fantasma));
                 hpCard.setStrokeColor(getColor(R.color.fantasma));
-
                 speedBackground.setBackground(getDrawable(R.color.fantasma));
                 spDefBackground.setBackground(getDrawable(R.color.fantasma));
                 spAtkBackground.setBackground(getDrawable(R.color.fantasma));
                 defBackground.setBackground(getDrawable(R.color.fantasma));
                 atkBackground.setBackground(getDrawable(R.color.fantasma));
                 hpBackground.setBackground(getDrawable(R.color.fantasma));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.fantasma));
 
                 break;
@@ -883,14 +836,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.fogo));
                 atkCard.setStrokeColor(getColor(R.color.fogo));
                 hpCard.setStrokeColor(getColor(R.color.fogo));
-
                 speedBackground.setBackground(getDrawable(R.color.fogo));
                 spDefBackground.setBackground(getDrawable(R.color.fogo));
                 spAtkBackground.setBackground(getDrawable(R.color.fogo));
                 defBackground.setBackground(getDrawable(R.color.fogo));
                 atkBackground.setBackground(getDrawable(R.color.fogo));
                 hpBackground.setBackground(getDrawable(R.color.fogo));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.fogo));
 
                 break;
@@ -901,14 +852,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.gelo));
                 atkCard.setStrokeColor(getColor(R.color.gelo));
                 hpCard.setStrokeColor(getColor(R.color.gelo));
-
                 speedBackground.setBackground(getDrawable(R.color.gelo));
                 spDefBackground.setBackground(getDrawable(R.color.gelo));
                 spAtkBackground.setBackground(getDrawable(R.color.gelo));
                 defBackground.setBackground(getDrawable(R.color.gelo));
                 atkBackground.setBackground(getDrawable(R.color.gelo));
                 hpBackground.setBackground(getDrawable(R.color.gelo));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.gelo));
 
                 break;
@@ -919,14 +868,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.grama));
                 atkCard.setStrokeColor(getColor(R.color.grama));
                 hpCard.setStrokeColor(getColor(R.color.grama));
-
                 speedBackground.setBackground(getDrawable(R.color.grama));
                 spDefBackground.setBackground(getDrawable(R.color.grama));
                 spAtkBackground.setBackground(getDrawable(R.color.grama));
                 defBackground.setBackground(getDrawable(R.color.grama));
                 atkBackground.setBackground(getDrawable(R.color.grama));
                 hpBackground.setBackground(getDrawable(R.color.grama));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.grama));
 
                 break;
@@ -937,14 +884,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.inseto));
                 atkCard.setStrokeColor(getColor(R.color.inseto));
                 hpCard.setStrokeColor(getColor(R.color.inseto));
-
                 speedBackground.setBackground(getDrawable(R.color.inseto));
                 spDefBackground.setBackground(getDrawable(R.color.inseto));
                 spAtkBackground.setBackground(getDrawable(R.color.inseto));
                 defBackground.setBackground(getDrawable(R.color.inseto));
                 atkBackground.setBackground(getDrawable(R.color.inseto));
                 hpBackground.setBackground(getDrawable(R.color.inseto));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.inseto));
 
                 break;
@@ -955,14 +900,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.lutador));
                 atkCard.setStrokeColor(getColor(R.color.lutador));
                 hpCard.setStrokeColor(getColor(R.color.lutador));
-
                 speedBackground.setBackground(getDrawable(R.color.lutador));
                 spDefBackground.setBackground(getDrawable(R.color.lutador));
                 spAtkBackground.setBackground(getDrawable(R.color.lutador));
                 defBackground.setBackground(getDrawable(R.color.lutador));
                 atkBackground.setBackground(getDrawable(R.color.lutador));
                 hpBackground.setBackground(getDrawable(R.color.lutador));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.lutador));
 
                 break;
@@ -973,14 +916,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.normal));
                 atkCard.setStrokeColor(getColor(R.color.normal));
                 hpCard.setStrokeColor(getColor(R.color.normal));
-
                 speedBackground.setBackground(getDrawable(R.color.normal));
                 spDefBackground.setBackground(getDrawable(R.color.normal));
                 spAtkBackground.setBackground(getDrawable(R.color.normal));
                 defBackground.setBackground(getDrawable(R.color.normal));
                 atkBackground.setBackground(getDrawable(R.color.normal));
                 hpBackground.setBackground(getDrawable(R.color.normal));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.normal));
 
                 break;
@@ -991,14 +932,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.pedra));
                 atkCard.setStrokeColor(getColor(R.color.pedra));
                 hpCard.setStrokeColor(getColor(R.color.pedra));
-
                 speedBackground.setBackground(getDrawable(R.color.pedra));
                 spDefBackground.setBackground(getDrawable(R.color.pedra));
                 spAtkBackground.setBackground(getDrawable(R.color.pedra));
                 defBackground.setBackground(getDrawable(R.color.pedra));
                 atkBackground.setBackground(getDrawable(R.color.pedra));
                 hpBackground.setBackground(getDrawable(R.color.pedra));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.pedra));
 
                 break;
@@ -1009,14 +948,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.psiquico));
                 atkCard.setStrokeColor(getColor(R.color.psiquico));
                 hpCard.setStrokeColor(getColor(R.color.psiquico));
-
                 speedBackground.setBackground(getDrawable(R.color.psiquico));
                 spDefBackground.setBackground(getDrawable(R.color.psiquico));
                 spAtkBackground.setBackground(getDrawable(R.color.psiquico));
                 defBackground.setBackground(getDrawable(R.color.psiquico));
                 atkBackground.setBackground(getDrawable(R.color.psiquico));
                 hpBackground.setBackground(getDrawable(R.color.psiquico));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.psiquico));
 
                 break;
@@ -1027,14 +964,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.sombrio));
                 atkCard.setStrokeColor(getColor(R.color.sombrio));
                 hpCard.setStrokeColor(getColor(R.color.sombrio));
-
                 speedBackground.setBackground(getDrawable(R.color.sombrio));
                 spDefBackground.setBackground(getDrawable(R.color.sombrio));
                 spAtkBackground.setBackground(getDrawable(R.color.sombrio));
                 defBackground.setBackground(getDrawable(R.color.sombrio));
                 atkBackground.setBackground(getDrawable(R.color.sombrio));
                 hpBackground.setBackground(getDrawable(R.color.sombrio));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.sombrio));
 
                 break;
@@ -1045,14 +980,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.terra));
                 atkCard.setStrokeColor(getColor(R.color.terra));
                 hpCard.setStrokeColor(getColor(R.color.terra));
-
                 speedBackground.setBackground(getDrawable(R.color.terra));
                 spDefBackground.setBackground(getDrawable(R.color.terra));
                 spAtkBackground.setBackground(getDrawable(R.color.terra));
                 defBackground.setBackground(getDrawable(R.color.terra));
                 atkBackground.setBackground(getDrawable(R.color.terra));
                 hpBackground.setBackground(getDrawable(R.color.terra));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.terra));
 
                 break;
@@ -1063,14 +996,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.venenoso));
                 atkCard.setStrokeColor(getColor(R.color.venenoso));
                 hpCard.setStrokeColor(getColor(R.color.venenoso));
-
                 speedBackground.setBackground(getDrawable(R.color.venenoso));
                 spDefBackground.setBackground(getDrawable(R.color.venenoso));
                 spAtkBackground.setBackground(getDrawable(R.color.venenoso));
                 defBackground.setBackground(getDrawable(R.color.venenoso));
                 atkBackground.setBackground(getDrawable(R.color.venenoso));
                 hpBackground.setBackground(getDrawable(R.color.venenoso));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.venenoso));
 
                 break;
@@ -1081,14 +1012,12 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 defCard.setStrokeColor(getColor(R.color.voador));
                 atkCard.setStrokeColor(getColor(R.color.voador));
                 hpCard.setStrokeColor(getColor(R.color.voador));
-
                 speedBackground.setBackground(getDrawable(R.color.voador));
                 spDefBackground.setBackground(getDrawable(R.color.voador));
                 spAtkBackground.setBackground(getDrawable(R.color.voador));
                 defBackground.setBackground(getDrawable(R.color.voador));
                 atkBackground.setBackground(getDrawable(R.color.voador));
                 hpBackground.setBackground(getDrawable(R.color.voador));
-
                 totalStatsCard.setCardBackgroundColor(getResources().getColor(R.color.voador));
 
                 break;
@@ -1102,31 +1031,25 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.parseColor(color));
-
-
         }
     }
 
     public HabilidadesFragment enviarPokemonParaHabilidades(Pokemon pokemon) {
 
         HabilidadesFragment habilidadesFragment = new HabilidadesFragment();
-
         Bundle bundle = new Bundle();
         bundle.putSerializable("POKEMON", pokemon);
         habilidadesFragment.setArguments(bundle);
-
         return habilidadesFragment;
     }
 
     public StatsFragment enviarPokemonParaStats(Pokemon pokemon) {
-        StatsFragment statsFragment = new StatsFragment();
 
+        StatsFragment statsFragment = new StatsFragment();
         Bundle bundle = new Bundle();
         bundle.putSerializable("POKEMON", pokemon);
         statsFragment.setArguments(bundle);
-
         return statsFragment;
-
     }
 }
 
