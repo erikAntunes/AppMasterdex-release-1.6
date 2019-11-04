@@ -1,27 +1,16 @@
 package com.example.masterdex.view;
-
 import android.content.Intent;
-
 import com.example.masterdex.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
-
 import java.util.Objects;
-
 import cn.pedant.SweetAlert.SweetAlertDialog;
-import es.dmoral.toasty.Toasty;
+
 
 public class EsqueciASenha extends AppCompatActivity {
 
@@ -40,18 +29,13 @@ public class EsqueciASenha extends AppCompatActivity {
         emailDigitado = findViewById(R.id.email_textinput);
         buttonVoltar = findViewById(R.id.botao_voltar_esqueci_senha);
         buttonEnviar = findViewById(R.id.enviar_button);
-
-
         buttonEnviar.setOnClickListener(this::enviarClicado);
-
         buttonVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 voltarParaLogin();
             }
         });
-
-
     }
 
     private void trocarSenha() {
@@ -70,7 +54,6 @@ public class EsqueciASenha extends AppCompatActivity {
                                 .setTitleText("Oops...")
                                 .setContentText("Por favor, verifique se o email foi digitado corretamente")
                                 .show();
-
                     }
                 });
     }
@@ -96,10 +79,7 @@ public class EsqueciASenha extends AppCompatActivity {
             //Clicar no "ok" do snackbar leva de volta para a tela de login
 
             trocarSenha();
-
         }
-
-
     }
 
     public void voltarParaLogin() {

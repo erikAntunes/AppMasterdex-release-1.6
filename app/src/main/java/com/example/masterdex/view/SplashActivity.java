@@ -1,13 +1,9 @@
 package com.example.masterdex.view;
-
 import android.content.Intent;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
-
 import android.os.Bundle;
-
 import com.example.masterdex.R;
 import com.example.masterdex.viewmodel.SplashViewModel;
 
@@ -19,10 +15,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         SplashViewModel splashViewModel = ViewModelProviders.of(this).get(SplashViewModel.class);
-
-
         irParaTelaPokemons();
-
     }
 
     private void irParaTelaPokemons() {
@@ -36,8 +29,6 @@ public class SplashActivity extends AppCompatActivity {
             }
         }, 2000);
     }
-
-
 }
 
 

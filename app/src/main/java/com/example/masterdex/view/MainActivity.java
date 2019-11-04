@@ -1,26 +1,15 @@
 package com.example.masterdex.view;
-
-
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
-
 import com.example.masterdex.R;
-import com.example.masterdex.adapter.AdapterPokemon;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-
 import com.example.masterdex.adapter.ViewPagerAdapter;
-
-import java.util.Collection;
-import java.util.Collections;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     MenuItem prevMenuItem;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,13 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager = findViewById(R.id.viewpager_id);
         bottomNavigationItemView = findViewById(R.id.bottom_navigation);
-
-
-
         setupViewPager(viewPager);
-
-
-
         bottomNavigationItemView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -80,9 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("page", "onPageSelected: " + position);
                 bottomNavigationItemView.getMenu().getItem(position).setChecked(true);
                 prevMenuItem = bottomNavigationItemView.getMenu().getItem(position);
-
             }
-
 
             @Override
             public void onPageScrollStateChanged(int state) {
@@ -92,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
         setupViewPager(viewPager);
         viewPager.setCurrentItem(1, true);
-
-
     }
 
 
@@ -107,21 +85,15 @@ public class MainActivity extends AppCompatActivity {
 
         adapter.AddFragment(new RegionsFragment(), "Regiões");
         viewPager.setAdapter(adapter);
-
     }
 
 
 
     public void ordemAz(View view) {
         Toast.makeText(getApplicationContext(), "Ordena  A-Z", Toast.LENGTH_SHORT).show();
-
-
-
     }
 
     public void ordemNum(View view) {
         Toast.makeText(getApplicationContext(), "Ordena  Numericamente", Toast.LENGTH_SHORT).show();
     }
-
-
 }

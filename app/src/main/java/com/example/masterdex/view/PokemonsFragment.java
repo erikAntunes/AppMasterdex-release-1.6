@@ -1,38 +1,22 @@
 package com.example.masterdex.view;
-
-
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.os.Bundle;
-
-
 import com.example.masterdex.R;
 import com.example.masterdex.database.FavoritosDb;
 import com.example.masterdex.viewmodel.PokemonViewModel;
-import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexboxLayoutManager;
-import com.google.android.flexbox.JustifyContent;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
-import android.os.Handler;
 import android.view.LayoutInflater;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
-
 import com.example.masterdex.adapter.AdapterPokemon;
 import com.example.masterdex.interfaces.PokemonListener;
 import com.example.masterdex.models.Pokemon;
@@ -40,16 +24,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
-
-
 import java.util.ArrayList;
-
-import cn.pedant.SweetAlert.SweetAlertDialog;
 import pl.droidsonroids.gif.GifImageButton;
 
 
 public class PokemonsFragment extends Fragment implements PokemonListener, SwipeRefreshLayout.OnRefreshListener {
-
 
     private RecyclerView recyclerPokemons;
     private AdapterPokemon pokemonAdapter;
@@ -67,22 +46,16 @@ public class PokemonsFragment extends Fragment implements PokemonListener, Swipe
     private FirebaseFirestore db;
     private FirebaseUser user;
     private FavoritosDb favoritosDb;
-
-
     private GifImageButton gifImageButton;
 
     public PokemonsFragment() {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_pokemons, container, false);
-
-
-
 
 
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -102,9 +75,6 @@ public class PokemonsFragment extends Fragment implements PokemonListener, Swipe
         ArrayList<Pokemon> pokemonArrayList = new ArrayList<>();
 
         searchView = view.findViewById(R.id.search_view);
-        //swipe = view.findViewById(R.id.swipe_refresh);
-        //swipe.setOnRefreshListener(() -> swipe.setRefreshing(false));
-
         recyclerPokemons = view.findViewById(R.id.recyclerView);
         MostrarBotoes = view.findViewById(R.id.linearLayout_id);
         FloatingActionButton floatActionButton = view.findViewById(R.id.button_mostrar_botoes_poke_home_id);
@@ -114,12 +84,7 @@ public class PokemonsFragment extends Fragment implements PokemonListener, Swipe
             public void onClick(View v) {
                 sortName(ascending);
                 ascending = !ascending;
-
-
-
             }
-
-
         });
 
 
@@ -129,24 +94,10 @@ public class PokemonsFragment extends Fragment implements PokemonListener, Swipe
             public void onClick(View v) {
                 sortNumber(ascending);
                 ascending = !ascending;
-
-
             }
         });
 
-
-
-
-
-
-        pokemonAdapter = new
-
-                AdapterPokemon(this, pokemonArrayList);
-
-
-
-
-
+        pokemonAdapter = new AdapterPokemon(this, pokemonArrayList);
 
         receberDadosApi();
 
@@ -169,7 +120,6 @@ public class PokemonsFragment extends Fragment implements PokemonListener, Swipe
             @Override
             public void onClick(View v) {
 
-
                 if (show) {
                     MostrarBotoes.setVisibility(View.INVISIBLE);
                     show = false;
@@ -178,17 +128,11 @@ public class PokemonsFragment extends Fragment implements PokemonListener, Swipe
                     MostrarBotoes.setVisibility(View.VISIBLE);
                     show = true;
                 }
-
             }
         });
 
-
-
         return view;
     }
-
-
-
 
     public void sortName(Boolean asc) {
         if (asc) {
@@ -196,7 +140,6 @@ public class PokemonsFragment extends Fragment implements PokemonListener, Swipe
         } else {
             pokemonAdapter.sortNameByDesc();
         }
-
     }
 
     public void sortNumber(Boolean asc) {
@@ -205,51 +148,19 @@ public class PokemonsFragment extends Fragment implements PokemonListener, Swipe
         } else {
             pokemonAdapter.sortNumberByDesc();
         }
-
     }
 
     private void receberDadosApi() {
 
-
-
         FlexboxLayoutManager layoutManager = new FlexboxLayoutManager(getContext());
-
         recyclerPokemons.setLayoutManager(layoutManager);
         recyclerPokemons.setAdapter(pokemonAdapter);
-
-
-
         PokemonViewModel pokemonViewModel = ViewModelProviders.of(this).get(PokemonViewModel.class);
         pokemonViewModel.atualizarPokemon(LIMIT, offset);
         pokemonViewModel.getPokemonLiveData()
                 .observe(this, pokemons -> pokemonAdapter.atualizarListaPokemons(pokemons));
-
-
-
     }
 
-    //    private void receberDados()
-//    {
-//        final PokeApi service = retrofit.create(PokeApi.class);
-//        Call<PokemonResponse> pokemonRespostaCall = service.obterListaPokemon();
-//        pokemonRespostaCall.enqueue(new Callback<PokemonResponse>() {
-//            @Override
-//            public void onResponse(Call<PokemonResponse> call, Response<PokemonResponse> response) {
-//                if (response.isSuccessful()) {
-//                    PokemonResponse pokemonResposta = response.body(); //colocando na variavel os dados recuperados pelo metodo @GET
-//                    ArrayList<Pokemon> pokemonArrayList = pokemonResposta.getResults(); //
-//                    pokemonAdapter.adicionarListaPokemon(pokemonArrayList);// adicionando todos os objetos num array
-//                } else {
-//                }
-//            }
-//            @Override
-//            public void onFailure(Call<PokemonResponse> call, Throwable t) {
-//            }
-//        });
-//
-//
-//
-//    }
     @Override
     public void onPokemonClicado(Pokemon pokemon) {
         Intent intent = new Intent(getContext(), DetalhesPokemonActivity.class);
@@ -262,8 +173,5 @@ public class PokemonsFragment extends Fragment implements PokemonListener, Swipe
     @Override
     public void onRefresh() {
         receberDadosApi();
-
     }
-
-
 }

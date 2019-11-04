@@ -42,7 +42,6 @@ public class PopuladoresPerfilFragment extends Fragment {
     List<Pokemon> novaLista = new ArrayList<>();
     private int i;
 
-
     public PopuladoresPerfilFragment() {
     }
 
@@ -56,11 +55,8 @@ public class PopuladoresPerfilFragment extends Fragment {
         if (user != null) {
             String name = user.getDisplayName();
         }
-
         recyclerView = view.findViewById(R.id.populares_perfil_recyclerview_id);
-
         buscarDadosFirebase();
-
         return view;
     }
 

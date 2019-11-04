@@ -155,6 +155,5 @@ public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClic
     public void signOut() {
         firebaseAuth.getInstance()
                 .signOut();
-
     }
 }

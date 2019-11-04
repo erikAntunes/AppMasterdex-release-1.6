@@ -1,7 +1,4 @@
 package com.example.masterdex.view;
-
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -10,15 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.masterdex.R;
 import com.example.masterdex.adapter.RegioesAdapter;
-
 import com.example.masterdex.interfaces.RegioesListener;
 import com.example.masterdex.models.Cidade;
 import com.example.masterdex.models.Regiao;
 import com.example.masterdex.modules.regiaoinformacao.view.RegioesInformacoesActivity;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,23 +33,17 @@ public class RegionsFragment extends Fragment implements RegioesListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_regions, container, false);
-
         recyclerView = view.findViewById(R.id.regioes_recycler_view);
-
         RegioesAdapter regioesAdapter = new RegioesAdapter(getListaRegioes(), this);
-
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
-
         recyclerView.setAdapter(regioesAdapter);
         recyclerView.setLayoutManager(layoutManager);
-
         return view;
     }
 
     private List<Regiao> getListaRegioes() {
 
         List<Regiao> listaRegioes = new ArrayList<>();
-
         Regiao kanto = new Regiao("Kanto");
         kanto.setImagemRegiao("https://1.bp.blogspot.com/-lptR-cLgKUY/W-St09lnVRI/AAAAAAAADwU/4tzbeNhJs94Suug-Fwtmm_8SSTYNkCP1QCLcBGAs/s1600/kanto%2Bmap%2Bletsgo.png");
         kanto.setDescricaoRegiao(getString(R.string.regiao_info_kanto));
@@ -559,13 +547,11 @@ public class RegionsFragment extends Fragment implements RegioesListener{
 
     @Override
     public void onRegiaoClicada(Regiao regiao) {
-        Intent intent = new Intent(getContext(), RegioesInformacoesActivity.class);
 
+        Intent intent = new Intent(getContext(), RegioesInformacoesActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("REGIAO", regiao);
-
         intent.putExtras(bundle);
-
         startActivity(intent);
     }
 }
