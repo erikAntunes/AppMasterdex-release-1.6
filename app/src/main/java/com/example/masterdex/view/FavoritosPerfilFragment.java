@@ -45,7 +45,6 @@ public class FavoritosPerfilFragment extends Fragment implements PokemonListener
 
         favoritosDb = Room.databaseBuilder(Objects.requireNonNull(getContext()),
                 FavoritosDb.class, FAVORITOS_DB).build();
-
         user = FirebaseAuth.getInstance().getCurrentUser();
         favRv = view.findViewById(R.id.favoritos_perfil_recyclerview_id);
         storage = FirebaseStorage.getInstance();
@@ -69,6 +68,7 @@ public class FavoritosPerfilFragment extends Fragment implements PokemonListener
 
 
     public void buscarTudoNoRoom() {
+
         FavoritosDao favoritosDao = favoritosDb.favoritosDao();
         favoritosDao.getAll()
                 .observeOn(AndroidSchedulers.mainThread())
@@ -79,8 +79,6 @@ public class FavoritosPerfilFragment extends Fragment implements PokemonListener
                     GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 3);
                     favRv.setLayoutManager(layoutManager);
                     favRv.setAdapter(favoritos);
-
-
                 });
     }
 

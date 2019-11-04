@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.masterdex.R;
 import com.example.masterdex.adapter.AdapterPerfilPopulares;
+import com.example.masterdex.interfaces.PokemonListener;
 import com.example.masterdex.models.Pokemon;
 import com.example.masterdex.models.PokemonRanking;
 import com.google.firebase.auth.FirebaseAuth;

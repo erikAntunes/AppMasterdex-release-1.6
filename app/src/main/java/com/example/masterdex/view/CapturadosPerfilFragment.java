@@ -1,4 +1,5 @@
 package com.example.masterdex.view;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,8 @@ import com.example.masterdex.R;
 import com.example.masterdex.adapter.AdapterPerfilCapturados;
 import com.example.masterdex.database.CapturadosDao;
 import com.example.masterdex.database.CapturadosDb;
+import com.example.masterdex.interfaces.PokemonListener;
+import com.example.masterdex.models.Pokemon;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -22,7 +25,7 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.schedulers.Schedulers;
 import static com.example.masterdex.repository.DetalhesPokemonRepository.CAPTURADOS_DB;
 
-public class CapturadosPerfilFragment extends Fragment {
+public class CapturadosPerfilFragment extends Fragment implements PokemonListener {
     private RecyclerView capRv;
     private AdapterPerfilCapturados capturados;
     private FirebaseStorage storage;
@@ -30,11 +33,9 @@ public class CapturadosPerfilFragment extends Fragment {
     private FirebaseUser user;
     private CapturadosDb capturadosDb;
 
-
     public CapturadosPerfilFragment() {
 
     }
-
 
     @Nullable
     @Override
@@ -58,15 +59,11 @@ public class CapturadosPerfilFragment extends Fragment {
 
     }
 
-
-
     @Override
     public void onResume() {
         buscarTudoNoRoom();
         super.onResume();
     }
-
-
 
     private void buscarTudoNoRoom() {
         CapturadosDao capturadosDao = capturadosDb.capturadosDao();
@@ -75,15 +72,21 @@ public class CapturadosPerfilFragment extends Fragment {
                 .subscribeOn(Schedulers.newThread())
                 .subscribe(pokemon -> {
 
-                    capturados = new AdapterPerfilCapturados(pokemon, getActivity());
+                    capturados = new AdapterPerfilCapturados(this,pokemon, getActivity());
                     GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
                     capRv.setLayoutManager(layoutManager);
                     capRv.setAdapter(capturados);
-
-
                 });
-
     }
 
 
+    @Override
+    public void onPokemonClicado(Pokemon pokemon) {
+
+        Intent intent = new Intent(getContext(), DetalhesPokemonActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("POKEMON", pokemon);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 }

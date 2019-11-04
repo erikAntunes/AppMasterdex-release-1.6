@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.masterdex.R;
+import com.example.masterdex.interfaces.PokemonListener;
 import com.example.masterdex.models.Pokemon;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
@@ -17,10 +18,11 @@ public class AdapterPerfilCapturados extends RecyclerView.Adapter<AdapterPerfilC
 
     private List<Pokemon> capturados;
     private Context context;
+    private PokemonListener pokemonListener;
 
 
-    public AdapterPerfilCapturados(List<Pokemon> capturados, Context c ){
-
+    public AdapterPerfilCapturados(PokemonListener pokemonListener,List<Pokemon> capturados, Context c ){
+        this.pokemonListener = pokemonListener;
         this.context = c;
         this.capturados = new ArrayList<>(capturados);
         notifyDataSetChanged();
@@ -41,7 +43,6 @@ public class AdapterPerfilCapturados extends RecyclerView.Adapter<AdapterPerfilC
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
 
         final Pokemon pokemon = capturados.get(position);
-
         String pok = pokemon.getName();
         pok = pok.substring(0, 1).toUpperCase().concat(pok.substring(1));
 
@@ -51,6 +52,12 @@ public class AdapterPerfilCapturados extends RecyclerView.Adapter<AdapterPerfilC
         Picasso.get().load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemon.getNumber() + ".png")
                 .into(viewHolder.imageFotoPokemon);
 
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pokemonListener.onPokemonClicado(pokemon);
+            }
+        });
     }
 
     @Override

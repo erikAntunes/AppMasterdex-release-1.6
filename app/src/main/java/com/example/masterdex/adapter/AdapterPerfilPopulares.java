@@ -6,6 +6,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.masterdex.R;
+import com.example.masterdex.interfaces.PokemonListener;
 import com.example.masterdex.models.PokemonRanking;
 import java.util.ArrayList;
 import java.util.List;
