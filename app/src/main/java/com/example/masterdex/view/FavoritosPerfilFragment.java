@@ -1,4 +1,5 @@
 package com.example.masterdex.view;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,8 @@ import com.example.masterdex.R;
 import com.example.masterdex.adapter.AdapterPerfilFavoritos;
 import com.example.masterdex.database.FavoritosDao;
 import com.example.masterdex.database.FavoritosDb;
+import com.example.masterdex.interfaces.PokemonListener;
+import com.example.masterdex.models.Pokemon;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -23,7 +26,7 @@ import io.reactivex.schedulers.Schedulers;
 import static com.example.masterdex.repository.DetalhesPokemonRepository.FAVORITOS_DB;
 
 
-public class FavoritosPerfilFragment extends Fragment {
+public class FavoritosPerfilFragment extends Fragment implements PokemonListener {
 
     private RecyclerView favRv;
     private AdapterPerfilFavoritos favoritos;
@@ -72,12 +75,22 @@ public class FavoritosPerfilFragment extends Fragment {
                 .subscribeOn(Schedulers.newThread())
                 .subscribe(pokemonEncontrado -> {
 
-                    favoritos = new AdapterPerfilFavoritos(pokemonEncontrado,getActivity());
+                    favoritos = new AdapterPerfilFavoritos(this,pokemonEncontrado,getActivity());
                     GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 3);
                     favRv.setLayoutManager(layoutManager);
                     favRv.setAdapter(favoritos);
 
 
                 });
+    }
+
+    @Override
+    public void onPokemonClicado(Pokemon pokemon) {
+
+        Intent intent = new Intent(getContext(), DetalhesPokemonActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("POKEMON", pokemon);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

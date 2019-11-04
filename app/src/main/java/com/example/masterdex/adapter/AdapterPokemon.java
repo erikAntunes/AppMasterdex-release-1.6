@@ -106,6 +106,7 @@ public class AdapterPokemon extends RecyclerView.Adapter<AdapterPokemon.ViewHold
 
         private TextView textNomePokemon;
         private ImageView imageFotoPokemon;
+
         private ViewHolder(@NonNull View itemView) {
             super(itemView);
 
