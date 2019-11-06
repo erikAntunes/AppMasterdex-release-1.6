@@ -9,17 +9,17 @@
     >
 
     <ImageView
-        android:id="@+id/detalhes_blastoise_voltar"
+        android:id="@+id/detalhes_pokemon_voltar"
         android:layout_width="30dp"
         android:layout_height="26dp"
         android:layout_marginStart="16dp"
         android:src="@drawable/button_voltar"
-        app:layout_constraintBottom_toBottomOf="@+id/toggle_blastoise_favorito_Button"
+        app:layout_constraintBottom_toBottomOf="@+id/toggle_pokemon_favorito_Button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toggle_blastoise_favorito_Button" />
+        app:layout_constraintTop_toTopOf="@+id/toggle_pokemon_favorito_Button" />
 
     <ToggleButton
-        android:id="@+id/toggle_blastoise_favorito_Button"
+        android:id="@+id/toggle_pokemon_favorito_Button"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="24dp"
@@ -27,11 +27,11 @@
         android:background="@drawable/toggle_star_selector"
         android:textOff=" "
         android:textOn=" "
-        app:layout_constraintEnd_toStartOf="@+id/toggle_blastoise_capturado_Button"
+        app:layout_constraintEnd_toStartOf="@+id/toggle_capturado_Button"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ToggleButton
-        android:id="@+id/toggle_blastoise_capturado_Button"
+        android:id="@+id/toggle_capturado_Button"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="24dp"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/detalhes_blastoise_card"
+        android:id="@+id/detalhes_pokemon_card"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -53,7 +53,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toggle_blastoise_favorito_Button"/>
+        app:layout_constraintTop_toBottomOf="@+id/toggle_pokemon_favorito_Button"/>
 
     <com.skydoves.medal.MedalLayout
         android:id="@+id/medal"
@@ -69,7 +69,7 @@
 
 
         <ImageView
-            android:id="@+id/detalhes_blastoise_image_view"
+            android:id="@+id/detalhes_pokemon_image_view"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginStart="8dp"
@@ -83,7 +83,7 @@
 
     </com.skydoves.medal.MedalLayout>
     <TextView
-        android:id="@+id/detalhes_blastoise_nome"
+        android:id="@+id/detalhes_pokemon_nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -96,35 +96,35 @@
         app:layout_constraintTop_toBottomOf="@+id/medal" />
 
     <ImageView
-        android:id="@+id/detalhes_blastoise_tipo1_image_view"
+        android:id="@+id/detalhes_pokemon_tipo1_image_view"
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:layout_marginStart="104dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detalhes_blastoise_nome" />
+        app:layout_constraintTop_toBottomOf="@+id/detalhes_pokemon_nome" />
 
     <ImageView
-        android:id="@+id/detalhes_blastoise_tipo2_image_view"
+        android:id="@+id/detalhes_pokemon_tipo2_image_view"
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="104dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detalhes_blastoise_nome" />
+        app:layout_constraintTop_toBottomOf="@+id/detalhes_pokemon_nome" />
 
     <ImageView
-        android:id="@+id/detalhes_blastoise_tipo_unico_image_view"
+        android:id="@+id/detalhes_pokemon_tipo_unico_image_view"
         android:layout_width="60dp"
         android:layout_height="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/detalhes_blastoise_tipo2_image_view"
-        app:layout_constraintStart_toEndOf="@+id/detalhes_blastoise_tipo1_image_view"
-        app:layout_constraintTop_toTopOf="@+id/detalhes_blastoise_tipo1_image_view" />
+        app:layout_constraintEnd_toStartOf="@+id/detalhes_pokemon_tipo2_image_view"
+        app:layout_constraintStart_toEndOf="@+id/detalhes_pokemon_tipo1_image_view"
+        app:layout_constraintTop_toTopOf="@+id/detalhes_pokemon_tipo1_image_view" />
 
 
 
     <TextView
-        android:id="@+id/detalhes_blastoise_descricao_text_view"
+        android:id="@+id/detalhes_pokemon_descricao_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -132,7 +132,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detalhes_blastoise_tipo1_image_view" />
+        app:layout_constraintTop_toBottomOf="@+id/detalhes_pokemon_tipo1_image_view" />
 
     <com.ogaclejapan.smarttablayout.SmartTabLayout
         android:id="@+id/detalhes_pokemon_smarttab"
@@ -143,7 +143,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detalhes_blastoise_tipo2_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/detalhes_pokemon_tipo2_image_view"
         app:stl_clickable="true"
         app:stl_defaultTabBackground="?attr/selectableItemBackground"
         app:stl_defaultTabTextAllCaps="false"
@@ -180,10 +180,10 @@
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/detalhes_blastoise_card"
-        app:layout_constraintEnd_toEndOf="@+id/detalhes_blastoise_card"
+        app:layout_constraintBottom_toBottomOf="@+id/detalhes_pokemon_card"
+        app:layout_constraintEnd_toEndOf="@+id/detalhes_pokemon_card"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/detalhes_blastoise_card"
+        app:layout_constraintStart_toStartOf="@+id/detalhes_pokemon_card"
         app:layout_constraintTop_toBottomOf="@+id/detalhes_pokemon_smarttab">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -193,7 +193,7 @@
     </androidx.viewpager.widget.ViewPager>
 
     <Switch
-        android:id="@+id/switch_shine_blastoise_id"
+        android:id="@+id/switch_shine_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -201,20 +201,20 @@
         android:layout_marginBottom="8dp"
         android:text="Shiny"
         android:textColor="@color/branco"
-        app:layout_constraintBottom_toTopOf="@+id/detalhes_blastoise_card"
+        app:layout_constraintBottom_toTopOf="@+id/detalhes_pokemon_card"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detalhes_blastoise_voltar" />
+        app:layout_constraintTop_toBottomOf="@+id/detalhes_pokemon_voltar" />
 
     <Switch
-        android:id="@+id/switch_back_blastoise_id"
+        android:id="@+id/switch_back_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="Back"
         android:textColor="@color/branco"
-        app:layout_constraintBottom_toTopOf="@+id/detalhes_blastoise_card"
+        app:layout_constraintBottom_toTopOf="@+id/detalhes_pokemon_card"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toggle_blastoise_capturado_Button" />
+        app:layout_constraintTop_toBottomOf="@+id/toggle_capturado_Button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
