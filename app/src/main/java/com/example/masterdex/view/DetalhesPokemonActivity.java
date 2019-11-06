@@ -225,40 +225,30 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
     }
 
 
-    private void favoritarFirebase(Pokemon pokemon) {
-        Map<String, Object> favoritosDb = new HashMap<>();
-        favoritosDb.put("nome", pokemon.getName());
-        favoritosDb.put("numero", pokemon.getNumber());
+ private void favoritarFirebase(Pokemon pokemon) {
+     Map<String, Object> favoritosDb = new HashMap<>();
+     favoritosDb.put("nome", pokemon.getName());
+     favoritosDb.put("numero", pokemon.getNumber());
 
-        // Add a new document with a generated ID
-        db.collection("votações")
-                .document("pokemons")
-                .collection("populares")
-                .add(favoritosDb)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getPath());
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
-                    }
-                });
+     // Add a new document with a generated ID
+     db.collection("votações")
+             .document("pokemons")
+             .collection("populares")
+             .add(favoritosDb)
+             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                 @Override
+                 public void onSuccess(DocumentReference documentReference) {
+                     Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getPath());
+                 }
+             })
+             .addOnFailureListener(new OnFailureListener() {
+                 @Override
+                 public void onFailure(@NonNull Exception e) {
+                     Log.w(TAG, "Error adding document", e);
+                 }
+             });
 
-    }
-
-
-    private void switchImageTypePokemon(Pokemon pokemon) {
-
-        if (pokemon.getTypes().size() == 1) {
-            setarTipoUnico(pokemon);
-        } else {
-            setarTipoHibrido(pokemon);
-        }
-    }
+ }
 
     private void setarTipoHibrido(Pokemon pokemon) {
 
@@ -440,6 +430,18 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
                 break;
         }
     }
+
+
+    private void switchImageTypePokemon(Pokemon pokemon) {
+
+        if (pokemon.getTypes().size() == 1) {
+            setarTipoUnico(pokemon);
+        } else {
+            setarTipoHibrido(pokemon);
+        }
+    }
+
+
 
     private void setupViewPager(Pokemon pokemonApi) {
         ViewPagerItemAdapter adapter = new ViewPagerItemAdapter(ViewPagerItems.with(this)
