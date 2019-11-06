@@ -78,17 +78,17 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes_pokemon);
 
-        ImageView botaoVoltar = findViewById(R.id.detalhes_pokemon_voltar);
-        botaoFavorito = findViewById(R.id.toggle_favorito_Button);
-        botaoCapturado = findViewById(R.id.toggle_capturado_Button);
-        ImageView imagemPokemon = findViewById(R.id.detalhes_pokemon_image_view);
-        TextView nomePokemon = findViewById(R.id.detalhes_pokemon_nome);
-        ImageView tipoPokemon = findViewById(R.id.detalhes_pokemon_tipo1_image_view);
-        TextView descricaoPokemon = findViewById(R.id.detalhes_pokemon_descricao_text_view);
+        ImageView botaoVoltar = findViewById(R.id.detalhes_blastoise_voltar);
+        botaoFavorito = findViewById(R.id.toggle_blastoise_favorito_Button);
+        botaoCapturado = findViewById(R.id.toggle_blastoise_capturado_Button);
+        ImageView imagemPokemon = findViewById(R.id.detalhes_blastoise_image_view);
+        TextView nomePokemon = findViewById(R.id.detalhes_blastoise_nome);
+        ImageView tipoPokemon = findViewById(R.id.detalhes_blastoise_tipo1_image_view);
+        TextView descricaoPokemon = findViewById(R.id.detalhes_blastoise_descricao_text_view);
         backgroundPokemon = findViewById(R.id.background_constraint_detalhe_pokemon);
-        tipoUnicoImageView = findViewById(R.id.detalhes_pokemon_tipo_unico_image_view);
-        tipoPrimarioImageView = findViewById(R.id.detalhes_pokemon_tipo1_image_view);
-        tipoSecundarioImageView = findViewById(R.id.detalhes_pokemon_tipo2_image_view);
+        tipoUnicoImageView = findViewById(R.id.detalhes_blastoise_tipo_unico_image_view);
+        tipoPrimarioImageView = findViewById(R.id.detalhes_blastoise_tipo1_image_view);
+        tipoSecundarioImageView = findViewById(R.id.detalhes_blastoise_tipo2_image_view);
         smartTabLayout = findViewById(R.id.detalhes_pokemon_smarttab);
 
 
@@ -121,7 +121,7 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
         DetalhesPokemonViewModel detalhesPokemonViewModel = ViewModelProviders.of(this).get(DetalhesPokemonViewModel.class);
         detalhesPokemonViewModel.getPokemonByName(pokemon.getName());
 
-        switchShine = findViewById(R.id.switch_shine_id);
+        switchShine = findViewById(R.id.switch_shine_blastoise_id);
 
         switchShine.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,7 +142,7 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
             }
         });
 
-        switchBack = findViewById(R.id.switch_back_id);
+        switchBack = findViewById(R.id.switch_back_blastoise_id);
 
         switchBack.setOnClickListener(new View.OnClickListener() {
             @Override
