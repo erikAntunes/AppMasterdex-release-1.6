@@ -163,11 +163,19 @@ public class PokemonsFragment extends Fragment implements PokemonListener, Swipe
 
     @Override
     public void onPokemonClicado(Pokemon pokemon) {
-        Intent intent = new Intent(getContext(), DetalhesPokemonActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("POKEMON", pokemon);
-        intent.putExtras(bundle);
-        startActivity(intent);
+
+        if (pokemon.getNumber() == 9){
+
+            Intent intent = new Intent(getContext(), DetalhesBlastoiseActivity.class);
+            startActivity(intent);
+
+        } else {
+            Intent intent = new Intent(getContext(), DetalhesPokemonActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("POKEMON", pokemon);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
     }
 
     @Override
