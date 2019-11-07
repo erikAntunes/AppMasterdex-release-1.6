@@ -175,7 +175,7 @@
     </com.ogaclejapan.smarttablayout.SmartTabLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
+        android:id="@+id/blastoise_viewPager"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -187,13 +187,13 @@
         app:layout_constraintTop_toBottomOf="@+id/detalhes_blastoise_smarttab">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/blastoise_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </androidx.viewpager.widget.ViewPager>
 
     <Switch
-        android:id="@+id/switch_shine_id"
+        android:id="@+id/switch_shine_blastoise_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -206,7 +206,7 @@
         app:layout_constraintTop_toBottomOf="@+id/detalhes_blastoise_voltar" />
 
     <Switch
-        android:id="@+id/switch_back_id"
+        android:id="@+id/switch_back_blastoise_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
