@@ -150,8 +150,8 @@ public class DetalhesBlastoiseActivity extends AppCompatActivity {
 
         ViewPagerItemAdapter blastoiseAdapter = new ViewPagerItemAdapter(ViewPagerItems.with(this)
 
-                .add("STATS", R.layout.fragment_blastoise_status)
-               // .add("HABILIDADES", R.layout.fragment_habilidades)
+                .add("PODER", R.layout.fragment_blastoise_status)
+                .add("HABILIDADES", R.layout.fragment_habilidades)
                 .create());
 
 
@@ -162,10 +162,10 @@ public class DetalhesBlastoiseActivity extends AppCompatActivity {
         // Personalizando SmartTab
         SmartTabLayout blastoiseTabLayout = findViewById(R.id.detalhes_blastoise_smarttab);
         blastoiseTabLayout.setViewPager(viewPager);
-        blastoiseAdapter.getPage(0);
+        blastoiseAdapter.getPage(0); // PODER
+        blastoiseAdapter.getPage(1); // HABILIDADES
         blastoiseTabLayout.setSelectedIndicatorColors(getColor(R.color.agua));
 
-        //setupHabilidadesTab(pokemonApi, adapter.getPage(1));
     }
 
 

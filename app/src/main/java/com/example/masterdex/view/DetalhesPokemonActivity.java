@@ -445,7 +445,7 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
     private void setupViewPager(Pokemon pokemonApi) {
         ViewPagerItemAdapter adapter = new ViewPagerItemAdapter(ViewPagerItems.with(this)
 
-                .add("STATS", R.layout.fragment_stats)
+                .add("PODER", R.layout.fragment_stats)
                 .add("HABILIDADES", R.layout.fragment_habilidades)
                 .create());
 
