@@ -41,8 +41,6 @@ public class DetalhesBlastoiseActivity extends AppCompatActivity {
     private CapturadosDb capturadosDb;
     private ConstraintLayout backgroundPokemon;
     private ImageView tipoUnicoImageView;
-    private ImageView tipoPrimarioImageView;
-    private ImageView tipoSecundarioImageView;
     private Switch switchShine;
     private Switch switchBack;
     private boolean favoritado = false;
@@ -167,7 +165,6 @@ public class DetalhesBlastoiseActivity extends AppCompatActivity {
         blastoiseTabLayout.setSelectedIndicatorColors(getColor(R.color.agua));
 
     }
-
 
     private void changeStatusBarColor(String color) {
         if (Build.VERSION.SDK_INT >= 21) {
