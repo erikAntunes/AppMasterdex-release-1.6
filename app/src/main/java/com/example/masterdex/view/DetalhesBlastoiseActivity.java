@@ -149,9 +149,8 @@ public class DetalhesBlastoiseActivity extends AppCompatActivity {
         ViewPagerItemAdapter blastoiseAdapter = new ViewPagerItemAdapter(ViewPagerItems.with(this)
 
                 .add("PODER", R.layout.fragment_blastoise_status)
-                .add("HABILIDADES", R.layout.fragment_habilidades)
+                .add("HABILIDADES", R.layout.fragment_blastoise_habilidades)
                 .create());
-
 
         // Setup View Pager
         ViewPager viewPager = findViewById(R.id.blastoise_viewPager);
