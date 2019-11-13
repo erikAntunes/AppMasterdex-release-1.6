@@ -6,16 +6,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.masterdex.R;
+import com.example.masterdex.models.BlastoiseHabilidades;
 import com.example.masterdex.models.Pokemon;
 import com.example.masterdex.models.SlotHabilidade;
 import java.util.List;
 
-public class AdapterHabilidades extends RecyclerView.Adapter<AdapterHabilidades.ViewHolder> {
-    private List<SlotHabilidade> slotHabilidadeList;
+public class AdapterBlastoiseHabilidades extends RecyclerView.Adapter<AdapterBlastoiseHabilidades.ViewHolder> {
+    private List<BlastoiseHabilidades> blastoiseHabilidadesList;
     private Pokemon pokemon;
 
-    public AdapterHabilidades (List<SlotHabilidade> slotHabilidadeList, Pokemon pokemon){
-        this.slotHabilidadeList = slotHabilidadeList;
+    public AdapterBlastoiseHabilidades (List<BlastoiseHabilidades> blastoiseHabilidadesList, Pokemon pokemon){
+        this.blastoiseHabilidadesList = blastoiseHabilidadesList;
         this.pokemon = pokemon;
     }
 
@@ -30,14 +31,14 @@ public class AdapterHabilidades extends RecyclerView.Adapter<AdapterHabilidades.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        SlotHabilidade habilidade = slotHabilidadeList.get(position);
+        BlastoiseHabilidades habilidade = blastoiseHabilidadesList.get(position);
         holder.setupHabilidade(habilidade);
 
     }
 
     @Override
     public int getItemCount() {
-        return slotHabilidadeList.size();
+        return blastoiseHabilidadesList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -50,9 +51,9 @@ public class AdapterHabilidades extends RecyclerView.Adapter<AdapterHabilidades.
             habilidadeTextView = itemView.findViewById(R.id.habilidades_text_view);
         }
 
-        public void setupHabilidade (SlotHabilidade slotHabilidade){
+        public void setupHabilidade (BlastoiseHabilidades habilidade){
 
-            habilidadeTextView.setText(slotHabilidade.getMove().getName());
+            habilidadeTextView.setText(habilidade.getName());
         }
     }
 }
