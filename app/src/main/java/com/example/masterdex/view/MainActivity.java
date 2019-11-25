@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 pDialog.dismiss();
             }
-        },2000);
+        },1950);
 
         viewPager = findViewById(R.id.viewpager_id);
         bottomNavigationItemView = findViewById(R.id.bottom_navigation);

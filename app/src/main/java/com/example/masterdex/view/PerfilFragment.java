@@ -103,10 +103,9 @@ public class PerfilFragment extends Fragment implements PopupMenu.OnMenuItemClic
     private PerfilViewPagerAdapter getPerfilViewPagerAdapter() {
         PerfilViewPagerAdapter perfilViewPagerAdapter = new PerfilViewPagerAdapter(getChildFragmentManager());
 
-        perfilViewPagerAdapter.AddFragment(new FavoritosPerfilFragment(), "Favoritos");
-
         perfilViewPagerAdapter.AddFragment(new CapturadosPerfilFragment(), "Capturados");
 
+        perfilViewPagerAdapter.AddFragment(new FavoritosPerfilFragment(), "Favoritos");
 
         perfilViewPagerAdapter.AddFragment(new PopuladoresPerfilFragment(), "Populares");
         return perfilViewPagerAdapter;
