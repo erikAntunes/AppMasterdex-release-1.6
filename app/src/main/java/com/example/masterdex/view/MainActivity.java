@@ -5,11 +5,15 @@ import com.example.masterdex.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import com.example.masterdex.adapter.ViewPagerAdapter;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +27,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SweetAlertDialog pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(R.color.azulBackground);
+        pDialog.setTitleText("Carregando...");
+
+        pDialog.setCancelable(true);
+
+        pDialog.show();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                pDialog.dismiss();
+            }
+        },1900);
 
         viewPager = findViewById(R.id.viewpager_id);
         bottomNavigationItemView = findViewById(R.id.bottom_navigation);

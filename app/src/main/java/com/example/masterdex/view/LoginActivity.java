@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import es.dmoral.toasty.Toasty;
@@ -24,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText senhaDigitada;
     TextView esqueciSenha;
     Button irParaCadastro;
+    private ImageView botaoVoltarParaHome;
     private FirebaseAuth firebaseAuth;
     private static final String TAG = "LoginActivity";
 
@@ -38,6 +40,8 @@ public class LoginActivity extends AppCompatActivity {
         entrar = findViewById(R.id.entrar_login_button);
         esqueciSenha = findViewById(R.id.login_esqueci_senha);
         irParaCadastro = findViewById(R.id.botao_ir_para_cadastro);
+        botaoVoltarParaHome = findViewById(R.id.button_voltar_para_home);
+        botaoVoltarParaHome.setOnClickListener(view -> voltarParaHome());
         entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,6 +63,12 @@ public class LoginActivity extends AppCompatActivity {
                 irParaTelaDeCadastro();
             }
         });
+    }
+
+    public void voltarParaHome() {
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     private void irParaTelaDeCadastro() {

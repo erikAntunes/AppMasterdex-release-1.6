@@ -19,6 +19,16 @@
         app:srcCompat="@mipmap/ic_launcher_foreground"
         tools:ignore="VectorDrawableCompat" />
 
+    <ImageView
+        android:id="@+id/button_voltar_para_home"
+        android:layout_width="30dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/button_voltar" />
+
     <TextView
 
         android:id="@+id/textView3"

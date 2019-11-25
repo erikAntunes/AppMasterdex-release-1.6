@@ -195,14 +195,22 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (!favoritado) {
-                    inserirPokemonFavorito(pokemon);
-                    favoritarFirebase(pokemon);
-                    favoritado = true;
-                }
-                if (!botaoFavorito.isChecked()) {
-                    deletarPokemonFavorito(pokemon);
-                    favoritado = false;
+                if ( user == null){
+                    Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+
+                }else {
+
+                    if (!favoritado) {
+                        inserirPokemonFavorito(pokemon);
+                        favoritarFirebase(pokemon);
+                        favoritado = true;
+                    }
+                    if (!botaoFavorito.isChecked()) {
+                        deletarPokemonFavorito(pokemon);
+                        favoritado = false;
+                    }
                 }
             }
         });
