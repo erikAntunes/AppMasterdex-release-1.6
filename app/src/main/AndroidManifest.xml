@@ -11,7 +11,10 @@
         android:roundIcon="@drawable/masterdex_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.DetalhesBlastoiseActivity"></activity>
+        <activity
+            android:name=".view.DetalhesBlastoiseActivity"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".view.QuizActivity"></activity>
         <activity
             android:name=".view.DetalhesPokemonActivity"
