@@ -51,7 +51,7 @@
         android:id="@+id/trocar_foto_perfil"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="144dp"
+        android:layout_marginEnd="110dp"
         android:src="@drawable/trocar_foto"
         app:layout_constraintBottom_toTopOf="@+id/nome_editar_perfil"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +65,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="65dp"
         android:layout_marginEnd="8dp"
-        android:text="Troque Sua Foto"
+        android:text=""
         android:textColor="@color/branco"
         android:textSize="35dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,7 +109,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Mude seu Nick"
+        android:text="Digite seu novo Nick"
         android:textColor="@color/azulFace"
         android:textSize="30dp"
         android:textStyle="bold"
@@ -153,5 +153,18 @@
             android:textSize="20dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="Trocar Foto"
+        android:textColor="@color/branco"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/trocar_foto_perfil"
+        app:layout_constraintEnd_toStartOf="@+id/trocar_foto_perfil"
+        app:layout_constraintTop_toTopOf="@+id/trocar_foto_perfil" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
