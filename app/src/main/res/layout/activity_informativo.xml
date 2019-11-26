@@ -17,17 +17,64 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_cancelar" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="160dp"
-        android:layout_height="200dp"
+
+    <Button
+        android:id="@+id/login_informativo_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:elevation="10dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_enviar"
+        android:text="LOGAR"
+        android:textAllCaps="false"
+        android:textColor="@color/branco"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_fechar_informativo" />
+
+    <Button
+        android:id="@+id/cadastrar_informativo_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:elevation="10dp"
+        android:background="@drawable/button_enviar"
+        android:text="CADASTRAR"
+        android:textAllCaps="false"
+        android:textColor="@color/branco"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintTop_toTopOf="@+id/login_informativo_button" />
+
+    <com.skydoves.medal.MedalLayout
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:direction="right"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/professor_carvalho" />
+        app:speed="17000"
+        app:turn="3">
+
+        <ImageView
+            android:id="@+id/professor_imageView"
+            android:layout_width="160dp"
+            android:layout_height="200dp"
+            android:elevation="10dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/professor_carvalho" />
+
+
+    </com.skydoves.medal.MedalLayout>
+
 
     <LinearLayout
         android:id="@+id/linearLayout_id"

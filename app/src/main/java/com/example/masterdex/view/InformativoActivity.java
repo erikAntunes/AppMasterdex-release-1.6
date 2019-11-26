@@ -27,7 +27,7 @@ public class InformativoActivity extends AppCompatActivity {
             public void run() {
                 pDialog.dismiss();
             }
-        },1500);
+        },1000);
 
     }
 }
