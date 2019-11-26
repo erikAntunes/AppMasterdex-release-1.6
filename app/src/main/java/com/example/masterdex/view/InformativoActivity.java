@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.masterdex.R;
@@ -14,6 +15,7 @@ public class InformativoActivity extends AppCompatActivity {
 
     Button irParaLogin;
     Button irParaCadastro;
+    ImageView botaoVoltarMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,13 @@ public class InformativoActivity extends AppCompatActivity {
                 irParaTelaDeLogin();
             }
         });
+        botaoVoltarMain = findViewById(R.id.button_fechar_informativo);
+        botaoVoltarMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                irParaMain();
+            }
+        });
 
 
     }
@@ -62,5 +71,9 @@ public class InformativoActivity extends AppCompatActivity {
     private void irParaTelaDeCadastro() {
         Intent intent = new Intent(this, CadastroActivity.class);
         startActivity(intent);
+    }
+
+    private void irParaMain() {
+        InformativoActivity.this.onBackPressed();
     }
 }

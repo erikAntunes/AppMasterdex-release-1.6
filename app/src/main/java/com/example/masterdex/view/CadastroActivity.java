@@ -54,13 +54,12 @@ public class CadastroActivity extends AppCompatActivity {
         Button cadastrar = findViewById(R.id.cadastrar_button);
         cadastrar.setOnClickListener(view -> cadastroRealizado());
         initComponents();
-        botaoVoltarParaLogin.setOnClickListener(view -> irParaMain());
+        botaoVoltarParaLogin.setOnClickListener(view -> voltar());
     }
 
-    private void irParaMain() {
+    private void voltar() {
 
-        Intent intent = new Intent(this, PerfilFragment.class);
-        startActivity(intent);
+        CadastroActivity.this.onBackPressed();
 
     }
 
