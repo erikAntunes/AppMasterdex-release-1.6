@@ -12,10 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".view.InformativoActivity"
+            android:label="@string/title_activity_informativo"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".view.DetalhesBlastoiseActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".view.QuizActivity"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.QuizActivity" />
         <activity
             android:name=".view.DetalhesPokemonActivity"
             android:screenOrientation="portrait" />

@@ -196,7 +196,7 @@ public class DetalhesPokemonActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if ( user == null){
-                    Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                    Intent intent = new Intent(getApplicationContext(),InformativoActivity.class);
                     startActivity(intent);
                     finish();
 
