@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.masterdex.R;
 import com.squareup.picasso.Picasso;
 import java.io.ByteArrayOutputStream;
+import java.util.Objects;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -89,18 +90,20 @@ public class EditarPerfilActivity extends AppCompatActivity {
         botaoCancelarAlteracoes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                irParaMain();
             }
         });
 
         botaoSalvarAlteracoes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (user != null) {
-                    atualizarDadosUsuario();
+                if (Objects.requireNonNull(nomeEdit.getText()).toString().equals("")) {
+
+                    irParaMain();
+                    finish();
 
                 } else {
-                    finish();
+                    atualizarDadosUsuario();
                 }
             }
         });
@@ -126,16 +129,16 @@ public class EditarPerfilActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-
+                            irParaMain();
                             finish();
                         }
                     }
                 });
     }
 
-    private void irParaPerfil() {
+    private void irParaMain() {
 
-        Intent intent = new Intent(this, PerfilFragment.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 

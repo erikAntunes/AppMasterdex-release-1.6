@@ -1,5 +1,4 @@
 package com.example.masterdex.view;
-import android.content.Intent;
 import com.example.masterdex.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -8,6 +7,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import java.util.Objects;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import es.dmoral.toasty.Toasty;
 import io.reactivex.annotations.NonNull;
 
 
@@ -52,7 +54,14 @@ public class CadastroActivity extends AppCompatActivity {
         Button cadastrar = findViewById(R.id.cadastrar_button);
         cadastrar.setOnClickListener(view -> cadastroRealizado());
         initComponents();
-        botaoVoltarParaLogin.setOnClickListener(view -> voltarParaLogin());
+        botaoVoltarParaLogin.setOnClickListener(view -> irParaMain());
+    }
+
+    private void irParaMain() {
+
+        Intent intent = new Intent(this, PerfilFragment.class);
+        startActivity(intent);
+
     }
 
     private void initComponents() {
@@ -64,9 +73,12 @@ public class CadastroActivity extends AppCompatActivity {
         botaoVoltarParaLogin = findViewById(R.id.button_voltar_para_login);
     }
 
-    public void voltarParaLogin() {
+    public void irParaEditarPerfil() {
 
-        CadastroActivity.this.onBackPressed();
+        Toasty.success(getApplicationContext(),"Cadastro Realizado Com Sucesso");
+        Intent intent = new Intent(this, EditarPerfilActivity.class);
+        startActivity(intent);
+
     }
 
 
@@ -107,6 +119,8 @@ public class CadastroActivity extends AppCompatActivity {
 
         String email = textEditEmail.getEditableText().toString();
         String password = textEditSenha.getEditableText().toString();
+        String displayName = textEditNick.getEditableText().toString();
+
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
@@ -121,12 +135,12 @@ public class CadastroActivity extends AppCompatActivity {
                                 .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                     @Override
                                     public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                        voltarParaLogin();
+                                        logar();
                                     }
                                 })
                                 .show();
 
-                        //atualizarPerfil();
+
                     } else {
 
                         // If sign in fails, display a message to the user.
@@ -140,26 +154,40 @@ public class CadastroActivity extends AppCompatActivity {
                 });
     }
 
-    public void atualizarPerfil() {
+    public void logar() {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        String nome = textEditNick.getEditableText().toString();
+
         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                .setDisplayName(textEditNick.getEditableText().toString())
+                .setDisplayName(nome)
                 .build();
 
-        assert user != null;
         user.updateProfile(profileUpdates)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Log.d(TAG, "Seu cadastro foi atualizado.");
-                            new SweetAlertDialog(getApplicationContext(), SweetAlertDialog.SUCCESS_TYPE)
-                                    .setTitleText("Cadastro")
-                                    .setContentText("Cadastro atualizado com sucesso!")
-                                    .show();
+                            irParaEditarPerfil();
+                            finish();
                         }
                     }
                 });
+
+      //  assert user != null;
+      //  user.updateProfile(profileUpdates)
+      //          .addOnCompleteListener(new OnCompleteListener<Void>() {
+      //              @Override
+      //              public void onComplete(@NonNull Task<Void> task) {
+      //                  if (task.isSuccessful()) {
+      //                      Log.d(TAG, "Seu cadastro foi atualizado.");
+      //                      new SweetAlertDialog(getApplicationContext(), SweetAlertDialog.SUCCESS_TYPE)
+      //                              .setTitleText("Cadastro")
+      //                              .setContentText("Cadastro atualizado com sucesso!")
+      //                              .show();
+      //                  }
+      //              }
+      //          });
     }
 }
