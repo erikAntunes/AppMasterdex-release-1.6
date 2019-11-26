@@ -10,12 +10,15 @@ import com.google.firebase.auth.FirebaseUser;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import es.dmoral.toasty.Toasty;
 
 public class LoginActivity extends AppCompatActivity {
@@ -34,6 +37,22 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        SweetAlertDialog pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(R.color.azulBackground);
+        pDialog.setTitleText("Carregando ...");
+
+        pDialog.setCancelable(true);
+
+        pDialog.show();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                pDialog.dismiss();
+            }
+        },800);
+
         firebaseAuth = FirebaseAuth.getInstance();
         emailDigitado = findViewById(R.id.email_login);
         senhaDigitada = findViewById(R.id.senha_login);
@@ -67,8 +86,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void voltarParaHome() {
 
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        LoginActivity.this.onBackPressed();
     }
 
     private void irParaTelaDeCadastro() {

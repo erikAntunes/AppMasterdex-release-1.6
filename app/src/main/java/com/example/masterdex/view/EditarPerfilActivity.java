@@ -11,6 +11,7 @@ import com.google.firebase.storage.UploadTask;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.masterdex.R;
 import com.squareup.picasso.Picasso;
 import java.io.ByteArrayOutputStream;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.reactivex.annotations.NonNull;
 
@@ -44,6 +47,20 @@ public class EditarPerfilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_perfil);
 
+        SweetAlertDialog pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(R.color.azulBackground);
+        pDialog.setTitleText("Carregando ...");
+
+        pDialog.setCancelable(true);
+
+        pDialog.show();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                pDialog.dismiss();
+            }
+        },800);
 
         nomePerfil = findViewById(R.id.nome_editar_perfil);
         nomeEdit = findViewById(R.id.nome_edit_perfil);

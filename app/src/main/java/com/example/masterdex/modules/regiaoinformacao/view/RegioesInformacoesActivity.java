@@ -3,6 +3,7 @@ import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,6 +13,8 @@ import com.example.masterdex.models.Regiao;
 import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
 import java.util.Objects;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class RegioesInformacoesActivity extends AppCompatActivity {
 
@@ -24,6 +27,21 @@ public class RegioesInformacoesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regioes_informacoes);
+
+        SweetAlertDialog pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(R.color.azulBackground);
+        pDialog.setTitleText("Carregando ...");
+
+        pDialog.setCancelable(true);
+
+        pDialog.show();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                pDialog.dismiss();
+            }
+        },800);
 
         imageView = findViewById(R.id.foto_informacoes_image_view);
         nomeRegiaoTextView = findViewById(R.id.regioes_nome_text_view);

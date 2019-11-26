@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -33,6 +34,21 @@ public class CadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
+        SweetAlertDialog pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(R.color.azulBackground);
+        pDialog.setTitleText("Carregando ...");
+
+        pDialog.setCancelable(true);
+
+        pDialog.show();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                pDialog.dismiss();
+            }
+        },800);
+
         Button cadastrar = findViewById(R.id.cadastrar_button);
         cadastrar.setOnClickListener(view -> cadastroRealizado());
         initComponents();
@@ -50,8 +66,7 @@ public class CadastroActivity extends AppCompatActivity {
 
     public void voltarParaLogin() {
 
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        CadastroActivity.this.onBackPressed();
     }
 
 
