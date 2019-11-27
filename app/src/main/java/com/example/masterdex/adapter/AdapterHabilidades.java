@@ -52,7 +52,7 @@ public class AdapterHabilidades extends RecyclerView.Adapter<AdapterHabilidades.
 
         public void setupHabilidade (SlotHabilidade slotHabilidade){
 
-            habilidadeTextView.setText(slotHabilidade.getMove().getName());
+            habilidadeTextView.setText(slotHabilidade.getMove().getName().substring(0,1).toUpperCase().concat(slotHabilidade.getMove().getName().substring(1)));
         }
     }
 }

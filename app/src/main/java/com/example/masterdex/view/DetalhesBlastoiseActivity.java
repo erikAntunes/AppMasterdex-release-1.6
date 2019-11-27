@@ -46,10 +46,6 @@ public class DetalhesBlastoiseActivity extends AppCompatActivity {
     private Switch switchShine;
     private Switch switchBack;
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
