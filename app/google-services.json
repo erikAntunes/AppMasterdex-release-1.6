@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:838680253300:android:396a251f849dc7f0",
         "android_client_info": {
-          "package_name": "com.example.masterdex"
+          "package_name": "com.titanz.masterdex"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "838680253300-o9rn1esman29s9ckjk02pcn6mrsja1jb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.masterdex",
+            "package_name": "com.titanz.masterdex",
             "certificate_hash": "289a3a78c317609557b85027e645cee550efe231"
           }
         },
