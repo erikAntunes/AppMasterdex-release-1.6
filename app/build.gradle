@@ -93,6 +93,10 @@ dependencies {
 
     implementation 'com.google.android:flexbox:1.1.0'
 
+    // Gif ImageView
+
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.1.17'
+
 
 }
 apply plugin: 'com.google.gms.google-services'
