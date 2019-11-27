@@ -13,33 +13,9 @@
         android:layout_width="30dp"
         android:layout_height="26dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/button_voltar"
-        app:layout_constraintBottom_toBottomOf="@+id/toggle_blastoise_favorito_Button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toggle_blastoise_favorito_Button" />
-
-    <ToggleButton
-        android:id="@+id/toggle_blastoise_favorito_Button"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/toggle_star_selector"
-        android:textOff=" "
-        android:textOn=" "
-        app:layout_constraintEnd_toStartOf="@+id/toggle_blastoise_capturado_Button"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ToggleButton
-        android:id="@+id/toggle_blastoise_capturado_Button"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/toggle_captured_selector"
-        android:textOff=" "
-        android:textOn=" "
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -53,7 +29,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toggle_blastoise_favorito_Button"/>
+        app:layout_constraintTop_toBottomOf="@+id/detalhes_blastoise_voltar"/>
 
     <com.skydoves.medal.MedalLayout
         android:id="@+id/medal"
@@ -209,12 +185,22 @@
         android:id="@+id/switch_back_blastoise_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="Back"
         android:textColor="@color/branco"
         app:layout_constraintBottom_toTopOf="@+id/detalhes_blastoise_card"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toggle_blastoise_capturado_Button" />
+        app:layout_constraintTop_toBottomOf="@+id/detalhes_blastoise_voltar" />
+
+    <ImageView
+        android:id="@+id/oculos_thug_life_id"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/oculos_thug_life"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

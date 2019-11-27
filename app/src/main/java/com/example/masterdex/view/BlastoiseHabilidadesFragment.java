@@ -20,7 +20,6 @@ public class BlastoiseHabilidadesFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_blastoise_habilidades, container, false);
 
-
         return view;
     }
 }

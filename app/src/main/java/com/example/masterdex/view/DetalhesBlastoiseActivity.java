@@ -2,8 +2,11 @@ package com.example.masterdex.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.room.Room;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,8 +21,11 @@ import android.widget.ToggleButton;
 
 import com.example.masterdex.R;
 import com.example.masterdex.database.CapturadosDb;
+import com.example.masterdex.database.FavoritosDao;
 import com.example.masterdex.database.FavoritosDb;
 import com.example.masterdex.models.Pokemon;
+import com.example.masterdex.viewmodel.DetalhesPokemonViewModel;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -29,26 +35,19 @@ import com.ogaclejapan.smarttablayout.utils.ViewPagerItems;
 import com.squareup.picasso.Picasso;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import io.reactivex.Completable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class DetalhesBlastoiseActivity extends AppCompatActivity {
 
-    public static final String FAVORITOS_DB = "favoritos_Db";
-    public static final String CAPTURADOS_DB = "capturados_Db";
-    private static final String TAG = "DetalhesPokemonActivity";
-    private ToggleButton botaoFavorito;
-    private ToggleButton botaoCapturado;
-    private FavoritosDb favoritosDb;
-    private CapturadosDb capturadosDb;
     private ConstraintLayout backgroundPokemon;
     private ImageView tipoUnicoImageView;
     private Switch switchShine;
     private Switch switchBack;
-    private boolean favoritado = false;
-    private boolean capturado = false;
-    private SmartTabLayout smartTabLayout;
-    private FirebaseStorage storage = FirebaseStorage.getInstance();
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private FirebaseUser user;
+
+
+
 
 
     @Override
@@ -71,6 +70,8 @@ public class DetalhesBlastoiseActivity extends AppCompatActivity {
                 pDialog.dismiss();
             }
         },1500);
+
+
 
         // Ajustando Cores do Background
         backgroundPokemon = findViewById(R.id.background_constraint_detalhe_blastoise_pokemon);
